@@ -1,0 +1,12 @@
+sources:
+  EU:
+    description: EU Node  
+    driver: yaml_file_cat
+    args:
+        path: "{{CATALOG_DIR}}/EU/main.yaml"
+  online:
+    description: online data sources
+    driver: yaml_file_cat
+    args:
+        path: "{{CATALOG_DIR}}/online/main.yaml"
+
