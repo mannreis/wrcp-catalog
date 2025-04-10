@@ -1,0 +1,72 @@
+sources:
+  scream:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /work/bb1153/k202134/scream-rearranged/scream_{{
+        time }}_hp{{ zoom }}_v6.zarr
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - 'PT1H'
+        - 'PT3H'
+        default: PT1H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        default: 2
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      project: global_hackathon
+      experiment_id: dyamond3
+      source_id: SCREAM
+      simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
+      time_start: 2019-08-01T00:00:00
+      time_end: 2020-09-01T00:00:00
+  icon_ngc4008:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /work/kd1453/rechunked_ngc4008/ngc4008_{{
+        time }}_{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT15M
+        - PT3H
+        - P1D
+        default: P1D
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      project: nextGEMS
+      experiment_id: nextgems_prefinal
+      source_id: ICON-ESM
+      simulation_id: ngc4008
+      time_start: 2020-01-01T00:00:00
+      time_end: 2050-01-01T00:00:00
