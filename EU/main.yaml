@@ -3,16 +3,16 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /work/bb1153/k202134/scream-rearranged/scream{{
+      urlpath: /work/bb1153/k202134/scream-rearranged/scream_{{
         time }}_hp{{ zoom }}_v6.zarr
     driver: zarr
     parameters:
       time:
         allowed:
-        - 2D_hrly
-        - 3D_ne120
-        default: 2D_hrly
-        description: 2d/3d and time resolution
+        - 'PT1H'
+        - 'PT3H'
+        default: PT1H
+        description: time resolution of the dataset
         type: str
       zoom:
         allowed:
