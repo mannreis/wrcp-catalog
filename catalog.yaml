@@ -4,6 +4,11 @@ sources:
     driver: yaml_file_cat
     args:
         path: "{{CATALOG_DIR}}/EU/main.yaml"
+  NERSC:
+    description: NERSC Node  
+    driver: yaml_file_cat
+    args:
+        path: "{{CATALOG_DIR}}/NERSC/main.yaml"
   online:
     description: online data sources
     driver: yaml_file_cat
