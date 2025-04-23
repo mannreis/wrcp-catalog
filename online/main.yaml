@@ -62,3 +62,39 @@ sources:
       experiment_id: nextgems_prefinal
       source_id: ICON-ESM
       simulation_id: ngc4008
+  glm_n2560_RAL3p3:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: https://hackathon-o.s3-ext.jc.rl.ac.uk/sim-data/dev/glm.n2560_RAL3p3/v4/data.healpix.{{ time }}.z{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - PT3H
+        default: PT1H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 8
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      project: global_hackathon
+      experiment_id: hackathon
+      source_id: Unified_Model
+      simulation_id: RAL3p3
+    
