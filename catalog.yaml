@@ -8,7 +8,7 @@ sources:
     description: NERSC Node  
     driver: yaml_file_cat
     args:
-        path: "{{CATALOG_DIR}}/scream/main.yaml"
+        path: "{{CATALOG_DIR}}/NERSC/main.yaml"
   online:
     description: online data sources
     driver: yaml_file_cat
