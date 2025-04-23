@@ -3,16 +3,9 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /global/cfs/cdirs/m4549/scream-cess-healpix/scream2D_hrly_{{ var }}_hp{{ zoom }}_v6.zarr
+      urlpath: /global/cfs/cdirs/m4549/scream-cess-healpix/scream2D_hrly_*_hp{{ zoom }}_v6.zarr
     driver: zarr
     parameters:
-      var:
-        allowed:
-        - 'rlut'
-        - 'pr'
-        default: rlut
-        description: variables
-        type: str
       zoom:
         allowed:
         - 10
@@ -68,21 +61,9 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /global/cfs/cdirs/m4549/scream-cess-healpix/scream3D_ne120_{{ var }}_hp{{ zoom }}_v6.zarr
+      urlpath: /global/cfs/cdirs/m4549/scream-cess-healpix/scream3D_ne120_*_hp{{ zoom }}_v6.zarr
     driver: zarr
     parameters:
-      var:
-        allowed:
-        - 'hus'
-        - 'omega'
-        - 'qall'
-        - 'ta'
-        - 'ua'
-        - 'va'
-        - 'zg'
-        default: ta
-        description: variables
-        type: str
       zoom:
         allowed:
         - 8
@@ -108,16 +89,9 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /global/cfs/cdirs/m4549/scream-cess-healpix/scream_lnd_{{ var }}_hp{{ zoom }}_v4.zarr
+      urlpath: /global/cfs/cdirs/m4549/scream-cess-healpix/scream_lnd_*_hp{{ zoom }}_v4.zarr
     driver: zarr
     parameters:
-      var:
-        allowed:
-        - 'mrso'
-        - 'swe'
-        default: swe
-        description: variables
-        type: str
       zoom:
         allowed:
         - 8
