@@ -62,3 +62,100 @@ sources:
       experiment_id: nextgems_prefinal
       source_id: ICON-ESM
       simulation_id: ngc4008
+  icon_d3hp003:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: https://s3.eu-dkrz-1.dkrz.cloud/wrcp-hackathon/data/ICON/d3hp003.zarr/{{ time }}_{{ aggregation }}_z{{ zoom }}_atm
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - PT3H
+        - PT6H
+        - P1D
+        default: P1D
+        description: time resolution of the dataset
+        type: str
+      aggregation:
+        allowed:
+          - mean
+          - inst
+        default: mean
+        description: aggregation time of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      source_id: ICON-ESM
+      simulation_id: d3hp003
+      time_start: 2020-01-01T00:00:00
+      time_end: 2021-03-01T00:00:00
+  icon_d3hp003_hourly:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: https://s3.eu-dkrz-1.dkrz.cloud/wrcp-hackathon/data/ICON/d3hp003.zarr/PT1H_inst_z{{ zoom }}_atm
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      source_id: ICON-ESM
+      simulation_id: d3hp003
+      time_start: 2020-01-01T00:00:00
+      time_end: 2021-03-01T00:00:00
+  icon_d3hp003_const:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: https://s3.eu-dkrz-1.dkrz.cloud/wrcp-hackathon/data/ICON/d3hp003.zarr/CONST_inst_z{{ zoom }}_atm
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      source_id: ICON-ESM
+      simulation_id: d3hp003
+      time_start: 2020-01-01T00:00:00
+      time_end: 2021-03-01T00:00:00
