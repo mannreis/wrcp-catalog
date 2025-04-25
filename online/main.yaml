@@ -66,7 +66,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: https://hackathon-o.s3-ext.jc.rl.ac.uk/sim-data/dev/glm.n2560_RAL3p3/v4/data.healpix.{{ time }}.z{{ zoom }}.zarr
+      urlpath: https://hackathon-o.s3-ext.jc.rl.ac.uk/sim-data/dev/v5/glm.n2560_RAL3p3/um.{{ time }}.hp_z{{ zoom }}.zarr
     driver: zarr
     parameters:
       time:
@@ -96,5 +96,5 @@ sources:
       project: global_hackathon
       experiment_id: hackathon
       source_id: Unified_Model
-      simulation_id: RAL3p3
+      simulation_id: N2560_RAL3p3
     
