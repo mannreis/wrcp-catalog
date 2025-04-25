@@ -35,7 +35,7 @@ jobs:
       - name: Build static files
         id: build
         run: |
-          files="$(find . -iname \*.yaml)"
+          files=$(find . -iname \*.yaml)
             for file in $files; do
                 echo "Processing $file"
                 mkdir -p build_outputs_folder/$(dirname $file)
