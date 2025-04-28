@@ -90,7 +90,7 @@ sources:
         allowed:
           - mean
           - inst
-        default: mean
+        default: inst
         description: time subsetting method
         type: str
       zoom:
