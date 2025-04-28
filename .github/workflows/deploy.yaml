@@ -4,7 +4,6 @@ name: Deploy site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -44,16 +43,21 @@ jobs:
             for file in $files; do
                 echo "Processing $file"
                 mkdir -p build_outputs_folder/$(dirname $file)
+                if [[ $file == *"main.yaml" ]]; then
+                    echo "Processing online file"
+                    python scripts/merge_catalogs.py online/main.yaml $file --output build_outputs_folder/$file
+                else
                 cp $file build_outputs_folder/$file
+                fi
             done
       - name: Upload static files as artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
         with:
           path: build_outputs_folder/
-
   # Deployment job
   deploy:
+    if: github.head_ref == 'main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
