@@ -32,6 +32,9 @@ jobs:
     # Specify runner +  build & upload the static files as an artifact
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
       - name: Build static files
         id: build
         run: |
@@ -41,9 +44,6 @@ jobs:
                 mkdir -p build_outputs_folder/$(dirname $file)
                 cp $file build_outputs_folder/$file
             done
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
       - name: Upload static files as artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
