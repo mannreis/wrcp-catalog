@@ -43,7 +43,12 @@ jobs:
             for file in $files; do
                 echo "Processing $file"
                 mkdir -p build_outputs_folder/$(dirname $file)
+                if [[ $file == *"main.yaml" ]]; then
+                    echo "Processing online file"
+                    python scripts/merge_catalogs.py online/main.yaml $file --output build_outputs_folder/$file
+                else
                 cp $file build_outputs_folder/$file
+                fi
             done
       - name: Upload static files as artifact
         id: deployment
