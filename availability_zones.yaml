@@ -1,5 +1,8 @@
-public:
+online:
   - online
-levante:
+EU:
   - online
   - EU
+NERSC:
+  - online
+  - NERSC

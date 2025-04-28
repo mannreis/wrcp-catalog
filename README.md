@@ -16,4 +16,4 @@ We distinguish between two sets of catalogs:
 
 **Provider** catalogs are the "source code": it's once catalog per data providing location, and should be edited by the people providing a given dataset (instance).
 
-**Usable** catalogs are the "compiled code": based on the file `availability_zones.yaml`, multiple provider catalogs are combined into catalogs showing all the entries which can be reached from a given site. E.g. at `levante`, we might have access to all data stored locally at the `EU` node, as well as all data available `online`. Thus these two catalogs are combined.
+**Usable** catalogs are the "compiled code": based on the file `availability_zones.yaml`, multiple provider catalogs are combined into catalogs showing all the entries which can be reached from a given site. E.g. at `EU`, we might have access to all data stored locally at the `EU` node, as well as all data available `online`. Thus these two catalogs are combined.
