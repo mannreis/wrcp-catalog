@@ -3,7 +3,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /global/cfs/cdirs/m4549/scream-cess-healpix/scream2D_hrly_*_hp{{ zoom }}_v6.zarr
+      urlpath: /global/cfs/cdirs/m4581/gsharing/scream-cess-healpix/scream2D_hrly_*_hp{{ zoom }}_v7.zarr
     driver: zarr
     parameters:
       zoom:
@@ -33,7 +33,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /global/cfs/cdirs/m4549/scream-cess-healpix/scream*_ne120_*_hp{{ zoom }}_v6.zarr
+      urlpath: /global/cfs/cdirs/m4581/gsharing/scream-cess-healpix/scream*_ne120_*_hp{{ zoom }}_v7.zarr
     driver: zarr
     parameters:
       zoom:
@@ -61,7 +61,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /global/cfs/cdirs/m4549/scream-cess-healpix/scream_lnd_*_hp{{ zoom }}_v4.zarr
+      urlpath: /global/cfs/cdirs/m4581/gsharing/scream-cess-healpix/scream_lnd_*_hp{{ zoom }}_v4.zarr
     driver: zarr
     parameters:
       zoom:
