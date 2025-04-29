@@ -1,43 +1,4 @@
 sources:
-  um_glm_n2560_RAL3p3:
-    args:
-      chunks: null
-      consolidated: true
-      urlpath: http://hackathon-o.s3.jc.rl.ac.uk/sim-data/dev/v5/glm.n2560_RAL3p3/um.{{ time }}.hp_z{{ zoom }}.zarr
-    driver: zarr
-    parameters:
-      time:
-        allowed:
-        - PT1H
-        - PT3H
-        default: PT1H
-        description: time resolution of the dataset
-        type: str
-      zoom:
-        allowed:
-        - 10
-        - 9
-        - 8
-        - 7
-        - 6
-        - 5
-        - 4
-        - 3
-        - 2
-        - 1
-        - 0
-        default: 8
-        description: zoom resolution of the dataset
-        type: int
-    metadata:
-      project: global_hackathon
-      experiment_id: hackathon
-      source_id: Unified_Model
-      simulation_id: N2560_RAL3p3
-      region: glm
-      resolution: 10km
-      configuration: RAL3p3
-      dimensionality:
   um_glm_n1280_GAL9:
     args:
       chunks: null
@@ -70,50 +31,13 @@ sources:
     metadata:
       project: global_hackathon
       experiment_id: hackathon
+      experiment_index: 1
       source_id: Unified_Model
       simulation_id: N1280_GAL9
       region: glm
-      resolution: 5km
+      resolution: 10km
       configuration: GAL9
-      dimensionality:
-  um_glm_n1280_CoMA9:
-    args:
-      chunks: null
-      consolidated: true
-      urlpath: http://hackathon-o.s3.jc.rl.ac.uk/sim-data/dev/v5/glm.n1280_CoMA9/um.{{ time }}.hp_z{{ zoom }}.zarr
-    driver: zarr
-    parameters:
-      time:
-        allowed:
-        - PT1H
-        - PT3H
-        default: PT1H
-        description: time resolution of the dataset
-        type: str
-      zoom:
-        allowed:
-        - 9
-        - 8
-        - 7
-        - 6
-        - 5
-        - 4
-        - 3
-        - 2
-        - 1
-        - 0
-        default: 8
-        description: zoom resolution of the dataset
-        type: int
-    metadata:
-      project: global_hackathon
-      experiment_id: hackathon
-      source_id: Unified_Model
-      simulation_id: N1280_CoMA9
-      region: glm
-      resolution: 5km
-      configuration: CoMA9
-      dimensionality:
+      dimensionality: 2D
   um_CTC_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
       chunks: null
@@ -147,6 +71,7 @@ sources:
     metadata:
       project: global_hackathon
       experiment_id: hackathon
+      experiment_index: 1
       source_id: Unified_Model
       simulation_id: CTC_km4p4_RAL3P3_n1280_GAL9_nest
       geospatial_lon_min: 0.00
@@ -154,8 +79,8 @@ sources:
       geospatial_lat_min: -40.00
       geospatial_lat_max: 26.00
       region: CTC
-      resolution: 5km
-      configuration: RAL3P3_GAL9
+      resolution: 4.4km
+      configuration: RAL3p3
       dimensionality:
   um_SAmer_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
@@ -190,6 +115,7 @@ sources:
     metadata:
       project: global_hackathon
       experiment_id: hackathon
+      experiment_index: 1
       source_id: Unified_Model
       simulation_id: SAmer_km4p4_RAL3P3_n1280_GAL9_nest
       geospatial_lon_min: 274.00
@@ -197,8 +123,8 @@ sources:
       geospatial_lat_min: -30.00
       geospatial_lat_max: 13.96
       region: SAmer
-      resolution: 5km
-      configuration: RAL3P3_GAL9
+      resolution: 4.4km
+      configuration: RAL3p3
       dimensionality:
   um_Africa_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
@@ -233,6 +159,7 @@ sources:
     metadata:
       project: global_hackathon
       experiment_id: hackathon
+      experiment_index: 1
       source_id: Unified_Model
       simulation_id: Africa_km4p4_RAL3P3_n1280_GAL9_nest
       geospatial_lon_min: 340.00
@@ -240,8 +167,8 @@ sources:
       geospatial_lat_min: -40.00
       geospatial_lat_max: 25.96
       region: Africa
-      resolution: 5km
-      configuration: RAL3P3_GAL9
+      resolution: 4.4km
+      configuration: RAL3p3
       dimensionality:
   um_SEA_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
@@ -276,6 +203,7 @@ sources:
     metadata:
       project: global_hackathon
       experiment_id: hackathon
+      experiment_index: 1
       source_id: Unified_Model
       simulation_id: SEA_km4p4_RAL3P3_n1280_GAL9_nest
       geospatial_lon_min: 90.00
@@ -283,6 +211,85 @@ sources:
       geospatial_lat_min: -18.00
       geospatial_lat_max: 25.96
       region: SEA
-      resolution: 5km
-      configuration: RAL3P3_GAL9
+      resolution: 4.4km
+      configuration: RAL3p3
       dimensionality:
+  um_glm_n2560_RAL3p3:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: http://hackathon-o.s3.jc.rl.ac.uk/sim-data/dev/v5/glm.n2560_RAL3p3/um.{{ time }}.hp_z{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - PT3H
+        default: PT1H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 8
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      project: global_hackathon
+      experiment_id: hackathon
+      experiment_index: 2
+      source_id: Unified_Model
+      simulation_id: N2560_RAL3p3
+      region: glm
+      resolution: 5km
+      configuration: RAL3p3
+      dimensionality: 2D
+  um_glm_n1280_CoMA9_TBv1p2:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: http://hackathon-o.s3.jc.rl.ac.uk/sim-data/dev/v5/glm.n1280_CoMA9/um.{{ time }}.hp_z{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - PT3H
+        default: PT1H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 8
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      project: global_hackathon
+      experiment_id: hackathon
+      experiment_index: 3
+      source_id: Unified_Model
+      simulation_id: N1280_CoMA9_TBv1p2
+      region: glm
+      resolution: 10km
+      configuration: CoMA9
+      dimensionality: 
