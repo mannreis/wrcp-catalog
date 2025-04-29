@@ -34,6 +34,10 @@ sources:
       experiment_id: hackathon
       source_id: Unified_Model
       simulation_id: N2560_RAL3p3
+      region: glm
+      resolution: 10km
+      configuration: RAL3p3
+      dimensionality:
   um_glm_n1280_GAL9:
     args:
       chunks: null
@@ -68,6 +72,10 @@ sources:
       experiment_id: hackathon
       source_id: Unified_Model
       simulation_id: N1280_GAL9
+      region: glm
+      resolution: 5km
+      configuration: GAL9
+      dimensionality:
   um_glm_n1280_CoMA9:
     args:
       chunks: null
@@ -102,6 +110,10 @@ sources:
       experiment_id: hackathon
       source_id: Unified_Model
       simulation_id: N1280_CoMA9
+      region: glm
+      resolution: 5km
+      configuration: CoMA9
+      dimensionality:
   um_CTC_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
       chunks: null
@@ -141,6 +153,10 @@ sources:
       geospatial_lon_max: 360.00
       geospatial_lat_min: -40.00
       geospatial_lat_max: 26.00
+      region: CTC
+      resolution: 5km
+      configuration: RAL3P3_GAL9
+      dimensionality:
   um_SAmer_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
       chunks: null
@@ -180,6 +196,10 @@ sources:
       geospatial_lon_max: 333.96
       geospatial_lat_min: -30.00
       geospatial_lat_max: 13.96
+      region: SAmer
+      resolution: 5km
+      configuration: RAL3P3_GAL9
+      dimensionality:
   um_Africa_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
       chunks: null
@@ -219,6 +239,10 @@ sources:
       geospatial_lon_max: 53.96
       geospatial_lat_min: -40.00
       geospatial_lat_max: 25.96
+      region: Africa
+      resolution: 5km
+      configuration: RAL3P3_GAL9
+      dimensionality:
   um_SEA_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
       chunks: null
@@ -258,3 +282,7 @@ sources:
       geospatial_lon_max: 153.96
       geospatial_lat_min: -18.00
       geospatial_lat_max: 25.96
+      region: SEA
+      resolution: 5km
+      configuration: RAL3P3_GAL9
+      dimensionality:
