@@ -57,7 +57,7 @@ jobs:
           path: build_outputs_folder/
   # Deployment job
   deploy:
-    if: github.head_ref == 'main'
+    if: "github.repository_owner == 'digital-earths-global-hackathon' && (github.event_name == 'schedule' || (github.event_name == 'push' && github.ref == 'refs/heads/main'))"
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
