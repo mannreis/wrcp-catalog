@@ -9,6 +9,11 @@ sources:
     driver: yaml_file_cat
     args:
         path: "{{CATALOG_DIR}}/NERSC/main.yaml"
+  NCAR:
+    description: NCAR Node  
+    driver: yaml_file_cat
+    args:
+        path: "{{CATALOG_DIR}}/NCAR/main.yaml"
   online:
     description: online data sources
     driver: yaml_file_cat
