@@ -1,17 +1,68 @@
 import argparse
 from dataclasses import asdict, dataclass, field
+from collections import defaultdict
 from pathlib import Path
 import yaml
 from jinja2 import Template
 
 
 @dataclass
-class DataSource:
+class RawDataSource:
     driver: str
     args: dict
+    allowed_parameters: dict[str, list]
+
+
+@dataclass
+class ParameterDescription:
+    default: any
+    type: str
     description: str = field(default_factory=str)
-    parameters: dict = field(default_factory=dict)
+
+    @staticmethod
+    def from_entry(entry):
+        return ParameterDescription(
+            entry["default"], entry["type"], entry["description"]
+        )
+
+
+@dataclass
+class DataSource:
+    raw: RawDataSource
+    description: str = field(default_factory=str)
+    parameter_descriptions: dict[str, ParameterDescription] = field(
+        default_factory=dict
+    )
     metadata: dict = field(default_factory=dict)
+
+    @staticmethod
+    def from_entry(entry):
+        raw = RawDataSource(
+            driver=entry["driver"],
+            args=entry["args"],
+            allowed_parameters={
+                k: v["allowed"] for k, v in entry.get("parameters", {}).items()
+            },
+        )
+        return DataSource(
+            raw=raw,
+            description=entry.get("description", ""),
+            parameter_descriptions={
+                k: ParameterDescription.from_entry(v)
+                for k, v in entry.get("parameters", {}).items()
+            },
+            metadata=entry.get("metadata", {}),
+        )
+
+    @property
+    def parameters(self):
+        return {
+            k: {
+                **asdict(v),
+                "allowed": self.raw.allowed_parameters[k],
+            }
+            for k, v in self.parameter_descriptions.items()
+        }
 
     def __or__(self, other: "DataSource | None") -> "DataSource":
         if other is None:
@@ -22,6 +73,16 @@ class DataSource:
     def __ror__(self, other: None) -> "DataSource":
         assert other is None
         return self
+
+    def to_entry(self, name) -> dict:
+        return {
+            "driver": self.raw.driver,
+            "args": self.raw.args,
+            "parameters": self.parameters,
+            "metadata": self.metadata,
+            "description": self.description,
+        }
+
 
 
 @dataclass
@@ -58,7 +119,7 @@ def parse_source(source: dict, path: Path) -> SimpleCat | DataSource:
             Path(Template(source["args"]["path"]).render(CATALOG_DIR=str(path.parent)))
         )
     else:
-        return DataSource(**source)
+        return DataSource.from_entry(source)
 
 
 def read_cat(path: Path) -> SimpleCat:
@@ -74,7 +135,7 @@ def read_cat(path: Path) -> SimpleCat:
 
 def write_cat(cat: SimpleCat, path: Path) -> None:
     sources = {
-        k: asdict(v) if isinstance(v, DataSource) else v.to_entry(k)
+        k: v.to_entry(k)
         for k, v in cat.sources.items()
     }
     path.mkdir(parents=True, exist_ok=True)
