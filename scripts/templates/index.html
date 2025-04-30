@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Digital Earths Global Hackathon Data Catalog</title>
+        <style>
+            :root {
+                --bg-color: white;
+                --fg-color: black;
+                --hightlight1: rgb(0, 76, 255);
+                --hightlight1-faint: rgb(197, 219, 255);
+
+                font-family: system-ui, sans-serif;
+                line-height: 1.5;
+                font-weight: 400;
+
+                color-scheme: light dark;
+
+                color: var(--fg-color);
+                background-color: var(--bg-color);
+
+                font-synthesis: none;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --fg-color: white;
+                    --bg-color: black;
+                    --hightlight1: rgb(255, 247, 0);
+                    --hightlight1-faint: rgb(39, 37, 1);
+                }
+            }
+
+            h2 {
+                margin: 5px;
+            }
+
+            .id {
+                font-family: monospace;
+            }
+
+            ul.dslist {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            ul.dslist > li {
+                flex: 0 0 30%;
+                display: block;
+
+                border-style: solid;
+                border-color: var(--fg-color);
+                border-width: 1px;
+                border-radius: 5px;
+                margin: 5px;
+                padding: 5px;
+            }
+            .zones ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .zones li {
+                background-color: var(--hightlight1-faint);
+                border: 1px solid var(--hightlight1);
+                border-radius: 2em;
+                color: var(--hightlight1);
+                display: inline-block;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 22px;
+                margin: 3px 6px 3px 0;
+                padding: 0 10px;
+                white-space: nowrap;
+            }
+
+            .smaller {
+                font-size: .8em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Digital Earths Global Hackathon Data Catalog</h1>
+        <ul class="dslist">
+            {% for id, mlds in mldss.items() %}
+            <li>
+                <h2 class="id">{{ id }} <span class="smaller">{% if mlds.parameter_descriptions %}({{ ', '.join(mlds.parameter_descriptions) }}){% endif %}</span></h2>
+                <div class="zones"><ul>{% for zone in mlds.raw %}<li>{{ zone }}</li>{% endfor %}</ul></div>
+                <table>
+                    <tr><th>name</th><th>description</th><th>type</th><th>default</th><th>allowed</th></tr>
+                    {% for name, descr in mlds.parameter_descriptions.items() %}
+                    <tr><td class="id">{{ name }}</td><td>{{ descr.description }}</td><td class="id">{{ descr.type }}</td><td>{{ descr.default }}</td></tr>
+                    {% endfor %}
+                </table>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

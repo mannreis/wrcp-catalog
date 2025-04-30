@@ -43,6 +43,7 @@ jobs:
         run: |
           cd scripts
           uv run combine_catalogs.py ../availability_zones.yaml ../build_outputs_folder
+          uv run render_catalog.py ../build_outputs_folder/mlds.json ../build_outputs_folder
       - name: Upload static files as artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
