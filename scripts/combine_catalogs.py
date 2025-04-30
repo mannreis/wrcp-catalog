@@ -160,12 +160,16 @@ def main():
     zones = yaml.safe_load(open(args.zones_file))
     cat = read_cat(basedir / "catalog.yaml")
 
+    zoned_cats = {}
+
     for zone, sources in zones.items():
         c = None
         for source in sources:
             c |= cat.sources[source]
-        d = outdir / zone
-        write_cat(c, d)
+        zoned_cats[zone] = c
+
+    for zone, zcat in zoned_cats.items():
+        write_cat(zcat, outdir / zone)
 
     with open(outdir / "catalog.yaml", "w") as outfile:
         yaml.dump(
