@@ -264,6 +264,7 @@ def main():
 
     full_cat = collect_mlds(cat.sources)
 
+    outdir.mkdir(parents=True, exist_ok=True)
     with open(outdir / "mlds.json", "w") as outfile:
         json.dump(
             {
