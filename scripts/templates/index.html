@@ -101,7 +101,7 @@
                 <h2 class="id">{{ id }} <span class="smaller">{% if mlds.parameter_descriptions %}({{ ', '.join(mlds.parameter_descriptions) }}){% endif %}</span></h2>
                 <div class="zones"><ul>{% for zone in mlds.raw %}<li>{{ zone }}</li>{% endfor %}</ul></div>
                 <table>
-                    <tr><th>name</th><th>description</th><th>type</th><th>default</th><th>allowed</th></tr>
+                    <tr><th>name</th><th>description</th><th>type</th><th>default</th></tr>
                     {% for name, descr in mlds.parameter_descriptions.items() %}
                     <tr><td class="id">{{ name }}</td><td>{{ descr.description }}</td><td class="id">{{ descr.type }}</td><td>{{ descr.default }}</td></tr>
                     {% endfor %}
