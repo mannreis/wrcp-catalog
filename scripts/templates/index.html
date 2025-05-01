@@ -86,6 +86,11 @@
     </head>
     <body>
         <h1>Digital Earths Global Hackathon Data Catalog</h1>
+
+        <p> To work with this catalog, you need intake version 0.7 (not 2.X). Please have a look at the <a href="https://github.com/digital-earths-global-hackathon/tools/blob/main/python_envs/environment.yaml">environment.yaml</a> file provided for the global hackathon. for a compatible python environment. With a matching python environment, you can open the catalog via </p>
+
+        <pre>cat=intake.open_catalog("https://digital-earths-global-hackathon.github.io/catalog/catalog.yaml")</pre>
+        
         <ul class="dslist">
             {% for id, mlds in mldss.items() %}
             <li>
