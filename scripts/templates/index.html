@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>Digital Earths Global Hackathon Data Catalog</title>
         <style>
             :root {
@@ -33,6 +34,10 @@
                 }
             }
 
+            p {
+                max-width: 800px;
+            }
+
             h2 {
                 margin: 5px;
             }
@@ -49,7 +54,7 @@
                 flex-wrap: wrap;
             }
             ul.dslist > li {
-                flex: 0 0 30%;
+                flex: 1 0 min(400px, 100%);
                 display: block;
 
                 border-style: solid;
@@ -93,17 +98,19 @@
         </style>
     </head>
     <body>
-        <h1>Digital Earths Global Hackathon Data Catalog</h1>
+        <div class="text">
+            <h1>Digital Earths Global Hackathon Data Catalog</h1>
 
-        <p> To work with this catalog, you need intake version 0.7 (not 2.X). Please have a look at the <a href="https://github.com/digital-earths-global-hackathon/tools/blob/main/python_envs/environment.yaml">environment.yaml</a> file provided for the global hackathon for a compatible python environment. With a matching python environment, you can open the catalog via </p>
-        {{
-            '''
-            import intake
-            cat = intake.open_catalog("https://digital-earths-global-hackathon.github.io/catalog/catalog.yaml")["YOUR_NODE_ID"]
-            ''' | highlight
-        }}
-        <p>For more info see <a href="https://github.com/digital-earths-global-hackathon/hk25-teams/blob/main/hk25-tutorials/simple_plot.ipynb"> the minimal plot script in the hackathon-teams repo</a> or <a href="https://easy.gems.dkrz.de/Processing/healpix/index.html"> the healpix examples on easy.gems</a>.
-        </p>
+            <p>To work with this catalog, you need intake version 0.7 (not 2.X). Please have a look at the <a href="https://github.com/digital-earths-global-hackathon/tools/blob/main/python_envs/environment.yaml">environment.yaml</a> file provided for the global hackathon for a compatible python environment. With a matching python environment, you can open the catalog via </p>
+            {{
+                '''
+                import intake
+                cat = intake.open_catalog("https://digital-earths-global-hackathon.github.io/catalog/catalog.yaml")["YOUR_NODE_ID"]
+                ''' | highlight
+            }}
+            <p>For more info see <a href="https://github.com/digital-earths-global-hackathon/hk25-teams/blob/main/hk25-tutorials/simple_plot.ipynb"> the minimal plot script in the hackathon-teams repo</a> or <a href="https://easy.gems.dkrz.de/Processing/healpix/index.html"> the healpix examples on easy.gems</a>.
+            </p>
+        </div>
 
         <ul class="dslist">
             {% for id, mlds in mldss.items() %}
