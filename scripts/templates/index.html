@@ -90,7 +90,7 @@
         <p> To work with this catalog, you need intake version 0.7 (not 2.X). Please have a look at the <a href="https://github.com/digital-earths-global-hackathon/tools/blob/main/python_envs/environment.yaml">environment.yaml</a> file provided for the global hackathon for a compatible python environment. With a matching python environment, you can open the catalog via </p>
         <pre>
             import intake
-            cat=intake.open_catalog("https://digital-earths-global-hackathon.github.io/catalog/catalog.yaml")
+            cat=intake.open_catalog("https://digital-earths-global-hackathon.github.io/catalog/catalog.yaml")["YOUR_NODE_ID"]
         </pre>
         <p>For more info see <a href="https://github.com/digital-earths-global-hackathon/hk25-teams/blob/main/hk25-tutorials/simple_plot.ipynb"> the minimal plot script in the hackathon-teams repo</a> or <a href="https://easy.gems.dkrz.de/Processing/healpix/index.html"> the healpix examples on easy.gems</a>.
         </p>
