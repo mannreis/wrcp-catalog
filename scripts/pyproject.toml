@@ -1,0 +1,12 @@
+[project]
+name = "scripts"
+version = "0.1.0"
+description = "Catalog handling scripts"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jinja2>=3.1.6",
+    "pydantic>=2.11.4",
+    "pygments>=2.19.1",
+    "pyyaml>=6.0.2",
+]

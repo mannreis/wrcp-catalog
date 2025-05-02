@@ -33,23 +33,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
       - name: Build static files
         id: build
         run: |
-          files=$(find . -iname \*.yaml)
-            for file in $files; do
-                echo "Processing $file"
-                mkdir -p build_outputs_folder/$(dirname $file)
-                if [[ $file == *"main.yaml" ]]; then
-                    echo "Processing online file"
-                    python scripts/merge_catalogs.py online/main.yaml $file --output build_outputs_folder/$file
-                else
-                cp $file build_outputs_folder/$file
-                fi
-            done
+          cd scripts
+          uv run combine_catalogs.py ../availability_zones.yaml ../build_outputs_folder
+          uv run render_catalog.py ../build_outputs_folder/mlds.json ../build_outputs_folder
       - name: Upload static files as artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3 # or specific "vX.X.X" version tag for this action
