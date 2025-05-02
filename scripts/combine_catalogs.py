@@ -264,24 +264,31 @@ def main():
 
     full_cat = collect_mlds(cat.sources)
 
+    zoned_cats = deep_dict()
+    ds_available_at = defaultdict(set)
+
+    for zone, sources in zones.items():
+        for id, mlds in full_cat.items():
+            if ds := join_mlds(mlds, sources):
+                deep_insert(zoned_cats[zone], id, ds)
+                ds_available_at[id].add(zone)
+
+    ds_available_at = {id: list(sorted(zones)) for id, zones in ds_available_at.items()}
+
     outdir.mkdir(parents=True, exist_ok=True)
     with open(outdir / "mlds.json", "w") as outfile:
         json.dump(
             {
-                id: mlds.model_dump()
+                id: {
+                    **mlds.model_dump(),
+                    "available_at": ds_available_at[id],
+                }
                 for id, mlds in full_cat.items()
             },
             outfile,
             cls=DateTimeEncoder,
             indent=2,
         )
-
-    zoned_cats = deep_dict()
-
-    for zone, sources in zones.items():
-        for id, mlds in full_cat.items():
-            if ds := join_mlds(mlds, sources):
-                deep_insert(zoned_cats[zone], id, ds)
 
     zoned_cats = {k: deep_dict_to_simple_cat(v) for k, v in zoned_cats.items()}
 

@@ -41,7 +41,7 @@ def main():
     template = env.get_template("index.html")
 
     with open(args.outdir / "index.html", "w") as outfile:
-        outfile.write(template.render(mldss=mldss))
+        outfile.write(template.render(mldss=mldss, sorted=sorted))
 
 if __name__ == "__main__":
     main()

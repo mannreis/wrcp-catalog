@@ -9,6 +9,8 @@
                 --fg-color: black;
                 --hightlight1: rgb(0, 76, 255);
                 --hightlight1-faint: rgb(197, 219, 255);
+                --hightlight2: gray;
+                --hightlight2-faint: gray;
 
                 font-family: system-ui, sans-serif;
                 line-height: 1.5;
@@ -38,7 +40,7 @@
                 max-width: 800px;
             }
 
-            h2 {
+            h3 {
                 margin: 5px;
             }
 
@@ -64,17 +66,14 @@
                 margin: 5px;
                 padding: 5px;
             }
-            .zones ul {
+            .zones ul, .providers ul {
                 list-style: none;
                 margin: 0;
                 padding: 0;
             }
 
-            .zones li {
-                background-color: var(--hightlight1-faint);
-                border: 1px solid var(--hightlight1);
+            .zones li, .providers li, span.zone, span.provider {
                 border-radius: 2em;
-                color: var(--hightlight1);
                 display: inline-block;
                 font-size: 12px;
                 font-weight: 500;
@@ -82,6 +81,16 @@
                 margin: 3px 6px 3px 0;
                 padding: 0 10px;
                 white-space: nowrap;
+            }
+            .zones li, span.zone {
+                background-color: var(--hightlight1-faint);
+                border: 1px solid var(--hightlight1);
+                color: var(--hightlight1);
+            }
+            .providers li, span.provider {
+                /* background-color: gray; */
+                border: 1px solid var(--hightlight2);
+                color: var(--hightlight2);
             }
 
             .smaller {
@@ -101,11 +110,21 @@
         <div class="text">
             <h1>Digital Earths Global Hackathon Data Catalog</h1>
 
-            <p>To work with this catalog, you need intake version 0.7 (not 2.X). Please have a look at the <a href="https://github.com/digital-earths-global-hackathon/tools/blob/main/python_envs/environment.yaml">environment.yaml</a> file provided for the global hackathon for a compatible python environment. With a matching python environment, you can open the catalog via </p>
+            <p>
+                This is the data catalog for the <a href="https://digital-earths-global-hackathon.github.io/hk25/">Digital Earths Global Hackathon</a>.
+                The datasets are hosted by different <span class="provider">providers</span> but sometimes may also be accessed remotely and thus are <span class="zone">available</span> at other places.
+
+            </p>
+
+            <p>
+                To work with this catalog, you need intake version 0.7 (not 2.X).
+                Please have a look at the <a href="https://github.com/digital-earths-global-hackathon/tools/blob/main/python_envs/environment.yaml">environment.yaml</a> file provided for the global hackathon for a compatible python environment.
+                In order to use the best way of accessing the data from your (or your codes) location, you'll have to specify your current <span class="zone">NODE_ID</span> when opening the dataset, the catalog will do the rest.
+                In case you are not working on any participating compute center, you may still select <span class="zone">online</span> and access publicly available data.
             {{
                 '''
                 import intake
-                cat = intake.open_catalog("https://digital-earths-global-hackathon.github.io/catalog/catalog.yaml")["YOUR_NODE_ID"]
+                cat = intake.open_catalog("https://digital-earths-global-hackathon.github.io/catalog/catalog.yaml")["NODE_ID"]
                 ''' | highlight
             }}
             <p>In order to open a dataset from the catalog below, use the catalog as follows:</p>
@@ -118,11 +137,13 @@
             </p>
         </div>
 
+        <h2>Datasets</h2>
         <ul class="dslist">
             {% for id, mlds in mldss.items() %}
             <li>
-                <h2 class="id">{{ id }} <span class="smaller">{% if mlds.parameter_descriptions %}({{ ', '.join(mlds.parameter_descriptions) }}){% endif %}</span></h2>
-                <div class="zones"><ul>{% for zone in mlds.raw %}<li>{{ zone }}</li>{% endfor %}</ul></div>
+                <h3 class="id">{{ id }} <span class="smaller">{% if mlds.parameter_descriptions %}({{ ', '.join(mlds.parameter_descriptions) }}){% endif %}</span></h3>
+                <div class="providers"><ul>{% for zone in sorted(mlds.raw) %}<li>{{ zone }}</li>{% endfor %}</ul></div>
+                <div class="zones"><ul>{% for zone in sorted(mlds.available_at) %}<li>{{ zone }}</li>{% endfor %}</ul></div>
                 <table>
                     <tr><th>name</th><th>description</th><th>type</th><th>default</th></tr>
                     {% for name, descr in mlds.parameter_descriptions.items() %}
