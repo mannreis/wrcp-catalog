@@ -108,6 +108,12 @@
                 cat = intake.open_catalog("https://digital-earths-global-hackathon.github.io/catalog/catalog.yaml")["YOUR_NODE_ID"]
                 ''' | highlight
             }}
+            <p>In order to open a dataset from the catalog below, use the catalog as follows:</p>
+            {{
+                '''
+                ds = cat["DATASET_ID"](zoom=7).to_dask()
+                ''' | highlight
+            }}
             <p>For more info see <a href="https://github.com/digital-earths-global-hackathon/hk25-teams/blob/main/hk25-tutorials/simple_plot.ipynb"> the minimal plot script in the hackathon-teams repo</a> or <a href="https://easy.gems.dkrz.de/Processing/healpix/index.html"> the healpix examples on easy.gems</a>.
             </p>
         </div>
