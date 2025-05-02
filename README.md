@@ -2,7 +2,7 @@
 
 This repo contains data catalogs for the [Digital Earths Global Hackathon](https://digital-earths-global-hackathon.github.io/hk25/).
 
-From a user point of view, it's best to think of **one** single catalog, covering all datasets available for the hackathon.
+From a user point of view, it's best to think of [**one** single catalog](https://digital-earths-global-hackathon.github.io/catalog/), covering all datasets available for the hackathon.
 Now, depending on where you want to access data from, a given dataset might be better reachable using a local path, instead of a global URL.
 In order to facilitate usage, we technically provide one catalog per *usage* site.
 Users should select the most appropriate catalog (either manually or automatically), based on where they execute an analysis.
