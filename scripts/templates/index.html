@@ -41,7 +41,11 @@
             }
 
             h3 {
-                margin: 5px;
+                margin: 5px 0;
+            }
+
+            h4, h5 {
+                margin: 0;
             }
 
             .id, .code {
@@ -108,8 +112,13 @@
                 overflow: scroll;
             }
 
-            .compact {
+            .compact, .summary {
                 line-height: 1.1em;
+            }
+
+            .summary p {
+                margin: 0;
+                margin-bottom: .2em;
             }
         </style>
     </head>
@@ -154,6 +163,28 @@
                     <tr><td class="id">{{ name }}:</td><td class="code">{{ allowed | raw_list }}</td></tr>
                     {% endfor %}
                 </table>
+                {% if mlds.metadata.title %}
+                <h4>{{ mlds.metadata.title }}</h4>
+                {% endif %}
+                {% if mlds.metadata.summary %}
+                <div class="summary">
+                {{ mlds.metadata.summary | markdown }}
+                </div>
+                {% endif %}
+                {% if mlds.metadata.references %}
+                <h5>references</h5>
+                <ul class="references">
+                    {% for entry in split_url_list(mlds.metadata.references) %}
+                    <li>
+                    {% if entry.url %}
+                    <a href="{{ entry.url }}">{{ entry.text }}</a>
+                    {% else %}
+                    {{ entry.text }}
+                    {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
                 <div class="providers"><ul>{% for zone in sorted(mlds.raw) %}<li>{{ zone }}</li>{% endfor %}</ul></div>
                 <div class="zones"><ul>{% for zone in sorted(mlds.available_at) %}<li>{{ zone }}</li>{% endfor %}</ul></div>
             </li>

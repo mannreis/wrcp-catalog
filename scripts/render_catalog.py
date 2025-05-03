@@ -1,9 +1,11 @@
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+import mistune
 from markupsafe import Markup
 from textwrap import dedent
 from pathlib import Path
 import argparse
 import json
+from urllib.parse import quote as urlquote
 
 from pygments import highlight
 from pygments.lexers import get_lexer_by_name
@@ -36,6 +38,25 @@ def max_allowed_params(mlds):
         for key in mlds.get("parameter_descriptions", {})
     }
 
+def render_markdown(markdown):
+    return Markup(mistune.html(markdown))
+
+def parse_url(u: str):
+    u = u.strip()
+    ul = u.lower()
+    if ul.startswith("http://") or ul.startswith("https://"):
+        url = ul
+    elif ul.startswith("doi:"):
+        url = "https://doi.org/" + urlquote(ul[4:])
+    else:
+        url = None
+    return {"url": url, "text": u}
+
+def split_url_list(l):
+    if isinstance(l, str):
+        l = l.split(",")
+    return [parse_url(u) for u in l]
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -52,13 +73,14 @@ def main():
     env.filters["highlight"] = highlight_code
     env.filters["default_params"] = format_default_params
     env.filters["raw_list"] = format_raw_list
+    env.filters["markdown"] = render_markdown
 
     mldss = json.load(open(args.mlds))
 
     template = env.get_template("index.html")
 
     with open(args.outdir / "index.html", "w") as outfile:
-        outfile.write(template.render(mldss=mldss, sorted=sorted, max_allowed_params=max_allowed_params))
+        outfile.write(template.render(mldss=mldss, sorted=sorted, max_allowed_params=max_allowed_params, split_url_list=split_url_list))
 
 if __name__ == "__main__":
     main()
