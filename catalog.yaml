@@ -19,4 +19,9 @@ sources:
     driver: yaml_file_cat
     args:
         path: "{{CATALOG_DIR}}/online/main.yaml"
+  UK:
+    description: online data sources
+    driver: yaml_file_cat
+    args:
+        path: "{{CATALOG_DIR}}/UK/main.yaml"
 
