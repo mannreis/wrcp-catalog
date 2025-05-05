@@ -100,6 +100,33 @@ sources:
       simulation_id: d3hp003
       time_start: 2020-01-01T00:00:00
       time_end: 2021-03-01T00:00:00
+  ifs_tco3999-ng5_rcbmf:
+    args:
+      chunks: auto
+      consolidated: true
+      urlpath: >
+        {% with time_map = {'PT1H': 'hourly'}, zoom_map = {1: '2', 2: '4', 3: '8', 4: '16', 5: '32', 6: '64', 7: '128', 8: '256', 9: '512', 10: '1024', 11: '2048'} -%}
+        https://s3.eu-dkrz-1.dkrz.cloud/wrcp-hackathon/data/IFS-FESOM/2D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.zarr
+        {%- endwith %}
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        default: PT1H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 7
+        default: 7
+        description: zoom level of the dataset
+        type: int
+    metadata:
+      source_id: IFS-FESOM
+      simulation_id: RCBMF
+      time_start: 2020-01-01T00:00:00
+      time_end: 2021-03-01T00:00:00
   um_glm_n1280_GAL9:
     args:
       chunks: null
