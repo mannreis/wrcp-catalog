@@ -45,9 +45,9 @@ def parse_url(u: str):
     u = u.strip()
     ul = u.lower()
     if ul.startswith("http://") or ul.startswith("https://"):
-        url = ul
+        url = u
     elif ul.startswith("doi:"):
-        url = "https://doi.org/" + urlquote(ul[4:])
+        url = "https://doi.org/" + urlquote(u[4:])
     else:
         url = None
     return {"url": url, "text": u}
