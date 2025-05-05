@@ -77,7 +77,7 @@ sources:
         allowed:
           - mean
           - inst
-        default: inst
+        default: mean
         description: time subsetting method
         type: str
       zoom:
