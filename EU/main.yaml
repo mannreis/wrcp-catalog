@@ -42,7 +42,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /work/bm1235/k202186/dy3ha-rechunked/d3hp003.zarr/{{ time }}_{{ method }}_z{{ zoom }}_atm
+      urlpath: /work/bm1235/k202186/dy3ha-rechunked/d3hp003.zarr/{{ time }}_{{ time_method }}_z{{ zoom }}_atm
     driver: zarr
     parameters:
       time:
@@ -54,11 +54,11 @@ sources:
         default: P1D
         description: time resolution of the dataset
         type: str
-      method:
+      time_method:
         allowed:
           - mean
           - inst
-        default: inst
+        default: mean
         description: time subsetting method
         type: str
       zoom:

@@ -61,7 +61,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: https://s3.eu-dkrz-1.dkrz.cloud/wrcp-hackathon/data/ICON/d3hp003.zarr/{{ time }}_{{ method }}_z{{ zoom }}_atm
+      urlpath: https://s3.eu-dkrz-1.dkrz.cloud/wrcp-hackathon/data/ICON/d3hp003.zarr/{{ time }}_{{ time_method }}_z{{ zoom }}_atm
     driver: zarr
     parameters:
       time:
@@ -73,11 +73,11 @@ sources:
         default: P1D
         description: time resolution of the dataset
         type: str
-      method:
+      time_method:
         allowed:
           - mean
           - inst
-        default: inst
+        default: mean
         description: time subsetting method
         type: str
       zoom:
