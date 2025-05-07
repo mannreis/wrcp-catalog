@@ -189,7 +189,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon>/UM/glm.n2560_RAL3p3/data.healpix.{{ time }}.z{{ zoom }}.zarr
+      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/UM/glm.n2560_RAL3p3/data.healpix.{{ time }}.z{{ zoom }}.zarr
     driver: zarr
     parameters:
       time:
@@ -223,4 +223,3 @@ sources:
       region: glm
       resolution: 5km
       configuration: RAL3p3
-      
