@@ -185,7 +185,7 @@ sources:
         type: int
     # metadata is in the EU Catalog
 
-    um_glm_n2560_RAL3p3:
+  um_glm_n2560_RAL3p3:
     args:
       chunks: null
       consolidated: true
