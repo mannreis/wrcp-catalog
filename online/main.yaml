@@ -132,9 +132,8 @@ sources:
       chunks: auto
       consolidated: true
       urlpath: >
-        {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {1: '2', 2: '4', 3: '8', 4: '16', 5: '32', 6: '64', 7: '128', 8: '256', 9: '512', 10: '1024', 11: '2048'} -%}
-        https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_2.8-FESOM_5-production.2D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/{{
-        method }}
+        {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+        https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_2.8-FESOM_5-production.2D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/kerchunk
         {%- endwith %}
     driver: zarr
     parameters:
@@ -152,14 +151,10 @@ sources:
         default: 7
         description: zoom level of the dataset
         type: int
-      method:
-        allowed:
-        - kerchunk
-        - zarr
-        default: kerchunk
-        description: server-side loading method
-        type: str
     metadata:
+      title: IFS-FESOM 2.8km simulation (14 months), coupled, with deep conv parameterisation switched off. Access via EERIE cloud.
+      summary: The Integrated Forecasting System (IFS), developed at ECMWF, is a spectral-transform atmospheric model with two-time-level semi-implicit, semi-Lagrangian time stepping (Temperton et al., 2001; Hortal, 2002; Diamantakis and Váňa, 2021). It is coupled to other Earth system components (land, waves, ocean, sea ice). The global hackathon simulations at 2.8km are with the IFS-FESOM configuration (Rackow et al. 2025), coupled to the FESOM2 ocean-sea ice model.
+      references: Rackow, T., Pedruzo-Bagazgoitia, X., Becker, T., Milinski, S., Sandu, I., Aguridan, R., Bechtold, P., Beyer, S., Bidlot, J., Boussetta, S., Deconinck, W., Diamantakis, M., Dueben, P., Dutra, E., Forbes, R., Ghosh, R., Goessling, H. F., Hadade, I., Hegewald, J., Jung, T., Keeley, S., Kluft, L., Koldunov, N., Koldunov, A., Kölling, T., Kousal, J., Kühnlein, C., Maciel, P., Mogensen, K., Quintino, T., Polichtchouk, I., Reuter, B., Sármány, D., Scholz, P., Sidorenko, D., Streffing, J., Sützl, B., Takasuka, D., Tietsche, S., Valentini, M., Vannière, B., Wedi, N., Zampieri, L., and Ziemen, F. - Multi-year simulations at kilometre scale with the Integrated Forecasting System coupled to FESOM2.5 and NEMOv3.4, Geosci. Model Dev., 18, 33–69, https://doi.org/10.5194/gmd-18-33-2025, 2025.        
       source_id: IFS-FESOM
       simulation_id: DEEPOFF
       time_start: 2020-01-01T00:00:00
