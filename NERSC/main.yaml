@@ -29,6 +29,7 @@ sources:
       simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
       time_start: 2019-08-01T00:00:00
       time_end: 2020-09-01T00:00:00
+
   scream_ne120:
     args:
       chunks: null
@@ -57,6 +58,36 @@ sources:
       simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
       time_start: 2019-08-01T00:00:00
       time_end: 2020-09-01T00:00:00
+  
+  scream_ne120_inst:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/scream-cess-healpix/scream*_ne120_inst_*_hp{{ zoom }}_v1.zarr
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 2
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      project: global_hackathon
+      experiment_id: dyamond3
+      source_id: SCREAM
+      simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
+      time_start: 2019-08-01T00:00:00
+      time_end: 2020-09-01T00:00:00
+
   scream_lnd:
     args:
       chunks: null
@@ -84,4 +115,29 @@ sources:
       source_id: SCREAM
       simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
       time_start: 2019-08-01T00:00:00
+      time_end: 2020-09-01T00:00:00
+  
+  tracking:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/scream-cess-healpix/scream2D_hrly_*_hp{{ zoom }}_v1.zarr
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        default: 9
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      project: global_hackathon
+      experiment_id: dyamond3
+      source_id: SCREAM
+      simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
+      time_start: 2019-09-01T00:00:00
       time_end: 2020-09-01T00:00:00
