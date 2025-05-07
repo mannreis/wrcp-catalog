@@ -85,7 +85,7 @@ sources:
       simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
       time_start: 2019-08-01T00:00:00
       time_end: 2020-09-01T00:00:00
-    
+  
   wrf_samerica:
     args:
       chunks: null
