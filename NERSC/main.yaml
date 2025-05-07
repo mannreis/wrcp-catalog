@@ -141,3 +141,46 @@ sources:
       simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
       time_start: 2019-09-01T00:00:00
       time_end: 2020-09-01T00:00:00
+
+  icon_d3hp003:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/ICON/d3hp003.zarr/{{ time }}_{{ time_method }}_z{{ zoom }}_atm
+    driver: zarr
+    description: Atmosphere-only simulation at 2.5 km resolution
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - PT3H
+        - PT6H
+        - P1D
+        default: P1D
+        description: time resolution of the dataset
+        type: str
+      time_method:
+        allowed:
+          - mean
+          - inst
+        default: mean
+        description: time subsetting method
+        type: str
+      zoom:
+        allowed:
+        - 11
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+    # metadata is in the EU Catalog
