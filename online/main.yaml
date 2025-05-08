@@ -169,7 +169,7 @@ sources:
       simulation_id: DEEPOFF
       time_start: 2020-01-01T00:00:00
       time_end: 2021-03-01T00:00:00
-      references: IFS-FESOM - Rackow, Pedruzo-Bagazgoitia, Becker, Milinski, Sandu et al. (2025) https://doi.org/10.5194/gmd-18-33-2025, IFS model - https://www.ecmwf.int/en/forecasts/documentation-and-support/changes-ecmwf-model, FESOM model - https://fesom.de
+      references: https://doi.org/10.5194/gmd-18-33-2025, https://www.ecmwf.int/en/forecasts/documentation-and-support/changes-ecmwf-model, https://fesom.de
       institution: European Centre for Medium-Range Weather Forecasts (ECMWF)
       citation: Rackow, T., Pedruzo-Bagazgoitia, X., Becker, T., Milinski, S., Sandu, I., Aguridan, R., Bechtold, P., Beyer, S., Bidlot, J., Boussetta, S., Deconinck, W., Diamantakis, M., Dueben, P., Dutra, E., Forbes, R., Ghosh, R., Goessling, H. F., Hadade, I., Hegewald, J., Jung, T., Keeley, S., Kluft, L., Koldunov, N., Koldunov, A., Kölling, T., Kousal, J., Kühnlein, C., Maciel, P., Mogensen, K., Quintino, T., Polichtchouk, I., Reuter, B., Sármány, D., Scholz, P., Sidorenko, D., Streffing, J., Sützl, B., Takasuka, D., Tietsche, S., Valentini, M., Vannière, B., Wedi, N., Zampieri, L., and Ziemen, F. - Multi-year simulations at kilometre scale with the Integrated Forecasting System coupled to FESOM2.5 and NEMOv3.4, Geosci. Model Dev., 18, 33–69, https://doi.org/10.5194/gmd-18-33-2025, 2025.
   um_glm_n1280_GAL9:
