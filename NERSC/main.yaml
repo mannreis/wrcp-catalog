@@ -279,6 +279,8 @@ sources:
         default: 8
         description: zoom resolution of the dataset
         type: int
+    # metadata is in the UK catalog
+
   wrf_samerica:
     args:
       chunks: null
