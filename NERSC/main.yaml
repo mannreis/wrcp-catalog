@@ -196,11 +196,16 @@ sources:
         type: int
     metadata:
       project: global_hackathon
-      experiment_id: dyamond3
-      source_id: SCREAM
-      simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
-      time_start: 2019-09-01T00:00:00
       time_end: 2020-09-01T00:00:00
+      title: Remapped Pixel-level feature tracking (MCS Mask) data to HEALPix grid
+      summary: 
+        2D hourly feature tracking data from the SCREAM CESS experiment.
+    
+        [**Resolutions**]
+          *  Levels 10-6 for 2D fields. 
+      creator_name: Zhe Feng 
+      creator_email: zhe.feng@pnnl.gov
+      institution: Pacific Northwest National Laboratory (PNNL)
 
   icon_d3hp003:
     args:
