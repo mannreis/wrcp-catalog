@@ -1,4 +1,43 @@
 sources:
+  mpas_dyamond3:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND3/{{time}}/DYAMOND_diag_{{time}}_to_hp{{zoom}}.zarr
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - 1hr
+        default: 1hr
+        description: temporal resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        default: 7
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      title: NCAR MPAS 3.75km simulation (partial DYAMOND3)
+      project: global_hackathon
+      experiment_id: dyamond3
+      source_id: MPAS
+      simulation_id: unknown
+      time_start: 2020-01-20T00:00:00
+      time_end: 2020-03-05T00:00:00
+      summary: Atmosphere-land simulation at 3.75km grid spacing. Run from 2020-01-20 to 2020-03-05.
+      creator_name: Bill Skamarock
+      institution: NSF National Center for Atmospheric Research
   scream2D_hrly:
     args:
       chunks: null
