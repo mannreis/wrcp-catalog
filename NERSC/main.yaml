@@ -283,3 +283,40 @@ sources:
       region: glm
       resolution: 5km
       configuration: RAL3p3
+
+  wrf_samerica:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/WRF_south_america/samerica_2020_*_hp{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+        - 10
+        - 9
+        - 8
+        - 7
+        default: 8
+        description: zoom resolution of the dataset
+        type: int
+#    metadata in NCAR catalog
+
+  wrf_conus:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/WRF_conus404/conus404_2020_*_hp{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+        - 10
+        - 9
+        - 8
+        - 7
+        default: 8
+        description: zoom resolution of the dataset
+        type: int
+#    metadata in NCAR catalog
+
