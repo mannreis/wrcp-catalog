@@ -254,7 +254,7 @@ sources:
       source_id: UM-5km-RAL3-global
       simulation_id: 5km-RAL3
       time_start: 2020-01-20T00:00:00
-      time_end: 2021-02-28:00:00
+      time_end: 2021-02-28T00:00
       title: RAL3.3 5 km simulation
       summary: |
         Atmosphere-only simulation at 5 km resolution. Run for 1 year and 2 months starting in 2020.
