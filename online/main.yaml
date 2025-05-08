@@ -245,19 +245,7 @@ sources:
         default: 8
         description: zoom resolution of the dataset
         type: int
-    metadata:
-      project: global_hackathon
-      experiment_id: hackathon
-      experiment_index: 1
-      source_id: Unified_Model
-      simulation_id: CTC_km4p4_RAL3P3_n1280_GAL9_nest
-      geospatial_lon_min: 0.00
-      geospatial_lon_max: 360.00
-      geospatial_lat_min: -40.00
-      geospatial_lat_max: 26.00
-      region: CTC
-      resolution: 4.4km
-      configuration: RAL3p3
+    # metadata defined in UK.
   um_SAmer_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
       chunks: null
@@ -417,6 +405,7 @@ sources:
         default: 8
         description: zoom resolution of the dataset
         type: int
+    # metadata defined in UK.
   um_glm_n1280_CoMA9_TBv1p2:
     args:
       chunks: null

@@ -83,6 +83,8 @@ sources:
       geospatial_lat_min: -40.00
       geospatial_lat_max: 26.00
       region: CTC
+      resolution: 4.4km
+      configuration: RAL3p3
   um_SAmer_km4p4_RAL3P3_n1280_GAL9_nest:
     args:
       chunks: null
