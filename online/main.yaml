@@ -26,6 +26,11 @@ sources:
       consolidated: true
       urlpath: https://swift.dkrz.de/v1/dkrz_41caca03ec414c2f95f52b23b775134f/reanalysis/v1/MERRA2_P1M_7.zarr
     driver: zarr
+  IR_IMERG:
+    args:
+      consolidated: true
+      urlpath: https://hackathon-o.s3-ext.jc.rl.ac.uk/obs-data/dev/v1/IR_IMERG_combined/IR_IMERG_combined_V07B.hp_z9.zarr
+    driver: zarr
   icon_ngc4008:
     args:
       chunks: null
