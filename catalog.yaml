@@ -34,4 +34,3 @@ sources:
     driver: yaml_file_cat
     args:
         path: "{{CATALOG_DIR}}/CN/main.yaml"
-
