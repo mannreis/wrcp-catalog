@@ -30,16 +30,16 @@ sources:
       time_start: 2019-08-01T00:00:00
       time_end: 2020-09-01T00:00:00
       title: SCREAM CESS experiment 2D Hourly instantaneous Fields
-      summary: 
+      summary: |
         2-D Hourly instantaneous Fields from the SCREAM CESS experiment.
     
-        [**Resolutions**]
+        **Resolutions**
           * Atmosphere data at levels 0-10 for 2D fields. 
 
         **Processing**
           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
           * Lower levels were generated from this using coarse-graining.
-      references: hhttps://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
+      references: https://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
       creator_name: Andrew Gettelman
       creator_email: andrew.gettelman@pnnl.gov
       institution: U.S. Department of Energy, E3SM Project
@@ -73,10 +73,10 @@ sources:
       time_start: 2019-08-01T00:00:00
       time_end: 2020-09-01T00:00:00
       title: SCREAM CESS experiment 3hrly Fields from 25km data
-      summary: 
+      summary: |
         2D and 3D 3hourly aerage Fields from the SCREAM CESS experiment (at 3.5km resolution).)
     
-        [**Resolutions**]
+        **Resolutions**
           *  Levels 0-8 for 2D fields. 
           *  Levels 0-8 for 3D fields.
 
@@ -84,7 +84,7 @@ sources:
           * Fields were saved as coarse (25km, ne120) data
           * Then remapped to HEALPix level 8 using nearest-neighbor interpolation. 
           * Lower levels were generated from this using coarse-graining.
-      references: hhttps://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
+      references: https://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
       creator_name: Andrew Gettelman
       creator_email: andrew.gettelman@pnnl.gov
       institution: U.S. Department of Energy, E3SM Project
@@ -118,17 +118,17 @@ sources:
       time_start: 2019-08-01T00:00:00
       time_end: 2020-09-01T00:00:00
       title: SCREAM CESS experiment 2D 3hrly instantaneous Fields
-      summary: 
+      summary: |
         2-D 3-Hourly instantaneous Fields from the SCREAM CESS experiment.
     
-        [**Resolutions**]
+        **Resolutions**
           * Atmosphere data at levels 0-8 for 2D fields. 
 
         **Processing**
           * Fields were saved as coarse (25km, ne120) data
           * Fields were remapped to HEALPix level 8 using nearest-neighbor interpolation. 
           * Lower levels were generated from this using coarse-graining.
-      references: hhttps://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
+      references: https://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
       creator_name: Andrew Gettelman
       creator_email: andrew.gettelman@pnnl.gov
       institution: U.S. Department of Energy, E3SM Project
@@ -162,17 +162,17 @@ sources:
       time_start: 2019-08-01T00:00:00
       time_end: 2020-09-01T00:00:00
       title: SCREAM CESS experiment 3hrly Fields from 25km data
-      summary: 
+      summary: |
         2D daily average Fields from the SCREAM CESS experiment (at 3.5km resolution).)
     
-        [**Resolutions**]
+        **Resolutions**
           *  Levels 0-8 for 2D fields. 
 
         **Processing**
           * Fields were saved as coarse (25km, ne120) data
           * Then remapped to HEALPix level 8 using nearest-neighbor interpolation. 
           * Lower levels were generated from this using coarse-graining.
-      references: hhttps://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
+      references: https://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
       creator_name: Andrew Gettelman
       creator_email: andrew.gettelman@pnnl.gov
       institution: U.S. Department of Energy, E3SM Project
@@ -198,10 +198,10 @@ sources:
       project: global_hackathon
       time_end: 2020-09-01T00:00:00
       title: Remapped Pixel-level feature tracking (MCS Mask) data to HEALPix grid
-      summary: 
+      summary: |
         2D hourly feature tracking data from the SCREAM CESS experiment.
     
-        [**Resolutions**]
+        **Resolutions**
           *  Levels 10-6 for 2D fields. 
       creator_name: Zhe Feng 
       creator_email: zhe.feng@pnnl.gov

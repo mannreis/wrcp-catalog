@@ -91,10 +91,10 @@ sources:
       time_start: 2020-01-01T00:00:00
       time_end: 2020-12-31T23:00:00
       title: WRF South America Experiment
-      summary: 
+      summary: |
         2D hourly average Fields from the WRF South America experiment. Simulations are 20-40 years long, but only 2020 stored here.
     
-        [**Resolutions**]
+        **Resolutions**
           *  Levels 0-10 for 2D fields. 
 
         **Processing**
@@ -130,10 +130,10 @@ sources:
       time_start: 2020-01-01T00:00:00
       time_end: 2020-12-31T23:00:00
       title: WRF Coterminus US Experiment (CONUS404)
-      summary: 
+      summary: |
         2D hourly average Fields from the WRF CONUS404 experiment. Simulations are 40 years long, but only 2020 stored here.
     
-        [**Resolutions**]
+        **Resolutions**
           *  Levels 0-10 for 2D fields. 
 
         **Processing**
