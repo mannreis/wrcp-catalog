@@ -279,15 +279,7 @@ sources:
         default: 8
         description: zoom resolution of the dataset
         type: int
-    metadata:
-      project: global_hackathon
-      experiment_id: hackathon
-      experiment_index: 2
-      source_id: Unified_Model
-      simulation_id: N2560_RAL3p3
-      region: glm
-      resolution: 5km
-      configuration: RAL3p3
+    # metadata is in the UK catalog
 
   wrf_samerica:
     args:
