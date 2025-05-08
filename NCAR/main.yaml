@@ -28,12 +28,16 @@ sources:
         description: zoom resolution of the dataset
         type: int
     metadata:
+      title: NCAR MPAS 3.75km simulation (partial DYAMOND3)
       project: global_hackathon
       experiment_id: dyamond3
       source_id: MPAS
       simulation_id: unknown
       time_start: 2020-01-20T00:00:00
       time_end: 2020-03-05T00:00:00
+      summary: Atmosphere-land simulation at 3.75km grid spacing. Run from 2020-01-20 to 2020-03-05.
+      creator_name: Bill Skamarock
+      institution: NSF National Center for Atmospheric Research
   scream2D_hrly:
     args:
       chunks: null
