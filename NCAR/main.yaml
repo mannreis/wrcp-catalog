@@ -109,6 +109,21 @@ sources:
       simulation_id: https://rda.ucar.edu/datasets/d616000
       time_start: 2020-01-01T00:00:00
       time_end: 2020-12-31T23:00:00
+      title: WRF South America Experiment
+      summary: 
+        2D hourly average Fields from the WRF South America experiment. Simulations are 20-40 years long, but only 2020 stored here.
+    
+        [**Resolutions**]
+          *  Levels 0-10 for 2D fields. 
+
+        **Processing**
+          * Fields were sextracted from raw data
+          * Then remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+          * Lower levels were generated from this using coarse-graining.
+      references: https://rda.ucar.edu/datasets/d616000
+      creator_name: Andrew Gettelman, Julia Kukulies 
+      creator_email: andrew.gettelman@pnnl.gov, kukulies@ucar.edu
+      institution: National Center for Atmospheric Research (NCAR)
 
   wrf_conus:
     args:
@@ -133,3 +148,18 @@ sources:
       simulation_id: https://rda.ucar.edu/datasets/d559000/
       time_start: 2020-01-01T00:00:00
       time_end: 2020-12-31T23:00:00
+      title: WRF Coterminus US Experiment (CONUS404)
+      summary: 
+        2D hourly average Fields from the WRF CONUS404 experiment. Simulations are 40 years long, but only 2020 stored here.
+    
+        [**Resolutions**]
+          *  Levels 0-10 for 2D fields. 
+
+        **Processing**
+          * Fields were sextracted from raw data
+          * Then remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+          * Lower levels were generated from this using coarse-graining.
+      references: https://rda.ucar.edu/datasets/d559000/
+      creator_name: Julia Kukulies 
+      creator_email: kukulies@ucar.edu
+      institution: National Center for Atmospheric Research (NCAR)
