@@ -153,8 +153,6 @@ sources:
       project: global_hackathon
       experiment_id: hackathon
       experiment_index: 1
-      source_id: Unified_Model
-      simulation_id: SAmer_km4p4_RAL3P3_n1280_GAL9_nest
       geospatial_lon_min: 274.00
       geospatial_lon_max: 333.96
       geospatial_lat_min: -30.00
@@ -215,8 +213,6 @@ sources:
       project: global_hackathon
       experiment_id: hackathon
       experiment_index: 1
-      source_id: Unified_Model
-      simulation_id: Africa_km4p4_RAL3P3_n1280_GAL9_nest
       geospatial_lon_min: 340.00
       geospatial_lon_max: 53.96
       geospatial_lat_min: -40.00
