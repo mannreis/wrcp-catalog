@@ -141,6 +141,39 @@ sources:
       source: ICON Model
       institution: Max Planck Institute for Meteorology
       citation: Takasuka, D., Satoh, M., Miyakawa, T. et al. A protocol and analysis of year-long simulations of global storm-resolving models and beyond. Prog Earth Planet Sci 11, 66 (2024). https://doi.org/10.1186/s40645-024-00668-1
+
+  ifs_tco3999-ng5_rcbmf:
+    args:
+      consolidated: false
+      urlpath: >
+        {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+        reference::/work/bm1344/DKRZ/kerchunks_batched/NGC-IFS-tco3999-ng5-production/{{ dim }}_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
+        {%- endwith %}
+    driver: zarr
+    parameters:
+      dim:
+        allowed:
+        - 2D
+        - 3D
+        default: 2D
+        description: 2D and 3D version of the dataset
+        type: str
+      time:
+        allowed:
+        - PT1H
+        - P1M
+        default: PT1H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 7
+        - 11
+        default: 7
+        description: zoom level of the dataset
+        type: int
+    # metadata in online catalog
+
   casesm2_nocumulus:
     args:
       chunks: null
@@ -167,5 +200,3 @@ sources:
         description: zoom resolution of the dataset
         type: int
     # metadata in CN main.yaml
-
-
