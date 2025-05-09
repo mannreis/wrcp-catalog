@@ -87,6 +87,8 @@ sources:
         type: str
       zoom:
         allowed:
+        - 11
+        - 10
         - 9
         - 8
         - 7
