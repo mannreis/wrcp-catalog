@@ -511,7 +511,7 @@ sources:
         default: 0
         description: zoom resolution of the dataset
         type: int
-  scream:
+  scream-dkrz:
     args:
       chunks: null
       consolidated: true
@@ -522,7 +522,7 @@ sources:
         allowed:
         - P1D
         - PT1H
-        - PT6H
+        - PT3H
         default: PT1H
         description: time resolution of the dataset
         type: str
