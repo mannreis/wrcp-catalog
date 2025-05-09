@@ -222,7 +222,7 @@ sources:
         type: str
       zoom:
         allowed:
-          - 9
+        - 9
         default: 9
         description: zoom resolution of the dataset
         type: int
