@@ -141,3 +141,31 @@ sources:
       source: ICON Model
       institution: Max Planck Institute for Meteorology
       citation: Takasuka, D., Satoh, M., Miyakawa, T. et al. A protocol and analysis of year-long simulations of global storm-resolving models and beyond. Prog Earth Planet Sci 11, 66 (2024). https://doi.org/10.1186/s40645-024-00668-1
+  casesm2_nocumulus:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: >
+        {% with time_map = {'PT3H': '3h', 'PT1H': '1h', 'PT6H': '6h'}, vert_map = {'PT3H': '2d', 'PT1H': '2d', 'PT6H': '3d'} -%}
+        /work/bm1235/for_kangjun/CAS-ESM2_10km_nocumulus_{{ vert_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
+        {%- endwith %}
+    driver: zarr
+    description: Atmosphere-only simulation at 10 km resolution
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - PT3H
+        - PT6H
+        default: PT6H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 9
+        default: 9
+        description: zoom resolution of the dataset
+        type: int
+    # metadata in CN main.yaml
+
+
