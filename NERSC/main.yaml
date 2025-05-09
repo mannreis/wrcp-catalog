@@ -220,12 +220,12 @@ sources:
         default: IMERG
         description: Instrument or dataset name
         type: str
-        zoom:
-          allowed:
+      zoom:
+        allowed:
           - 9
-          default: 9
-          description: zoom resolution of the dataset
-          type: int
+        default: 9
+        description: zoom resolution of the dataset
+        type: int
     metadata:
       project: global_hackathon
       time_start: 2019-01-01T00:00:00
