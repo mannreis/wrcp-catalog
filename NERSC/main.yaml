@@ -356,7 +356,7 @@ sources:
       consolidated: true
       urlpath: >
         {% with time_map = {'PT1H': '1h', 'PT3H': '3h', 'PT6H' : '6h'} ,  dims_map = {'PT1H': '2d', 'PT3H': '2d', 'PT6H' : '3d'}  -%}
-        /global/cfs/cdirs/m4581/gsharing/hackathon/NICAM_{{ dims_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
+        /global/cfs/cdirs/m4581/gsharing/hackathon/NICAM/NICAM_{{ dims_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
         {%- endwith %}
     driver: zarr
     parameters:
