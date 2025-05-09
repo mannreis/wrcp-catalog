@@ -168,4 +168,112 @@ sources:
         type: int
     # metadata in CN main.yaml
 
+  icon_d3hp003feb:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /work/bm1235/k203123/dy3ha-p/experiments/d3hp003feb/outdata/d3hp003feb.zarr/{{ time_method }}_z{{ zoom }}_atm
+    driver: zarr
+    description: Atmosphere-only simulation at 2.5 km resolution
+    parameters:
+      time_method:
+        allowed:
+        - PT15M_inst
+        - PT3H_mean
+        - PT6H_mean
+        default: PT15M_inst
+        description: time resolution & time method of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 11
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      source_id: ICON-ESM
+      simulation_id: d3hp003feb
+      time_start: 2020-02-01T00:00:00
+      time_end: 2021-02-02T00:00:00
+      title: ICON 2.5 km simulation
+      summary: |
+        Atmosphere-only simulation at 2.5 km resolution. Run for 1 day only.
+        Same initial conditions as in icon_d3hp003.
 
+        **Processing**
+          * PT15M output for a subset (PT1H) of the icon_d3hp003 dataset.
+          * See icon_d3hp003 metadata for more description.
+
+      references: https://www.icon-model.org/
+      license: Creative Commons CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
+      creator_name: Karl-Hermann Wieners, Marco Giorgietta, Siddhant Tibrewal
+      creator_email: karl-hermann.wieners@mpimet.mpg.de, marco.giorgetta@mpimet.mpg.de, siddhant.tibrewal@mpimet.mpg.de
+      source: ICON Model
+      institution: Max Planck Institute for Meteorology
+      citation: Takasuka, D., Satoh, M., Miyakawa, T. et al. A protocol and analysis of year-long simulations of global storm-resolving models and beyond. Prog Earth Planet Sci 11, 66 (2024). https://doi.org/10.1186/s40645-024-00668-1
+
+  icon_d3hp003aug:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /work/bm1235/k203123/dy3ha-p/experiments/d3hp003aug/outdata/d3hp003aug.zarr/{{ time_method }}_z{{ zoom }}_atm
+    driver: zarr
+    description: Atmosphere-only simulation at 2.5 km resolution
+    parameters:
+      time_method:
+        allowed:
+        - PT15M_inst
+        - PT3H_mean
+        - PT6H_mean
+        default: PT15M_inst
+        description: time resolution & time method of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 11
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      source_id: ICON-ESM
+      simulation_id: d3hp003aug
+      time_start: 2020-08-01T00:00:00
+      time_end: 2021-08-02T00:00:00
+      title: ICON 2.5 km simulation
+      summary: |
+        Atmosphere-only simulation at 2.5 km resolution. Run for 1 day only.
+        Same initial conditions as in icon_d3hp003.
+
+        **Processing**
+          * PT15M output for a subset (PT1H) of the icon_d3hp003 dataset.
+          * See icon_d3hp003 metadata for more description.
+
+      references: https://www.icon-model.org/
+      license: Creative Commons CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
+      creator_name: Karl-Hermann Wieners, Marco Giorgietta, Siddhant Tibrewal
+      creator_email: karl-hermann.wieners@mpimet.mpg.de, marco.giorgetta@mpimet.mpg.de, siddhant.tibrewal@mpimet.mpg.de
+      source: ICON Model
+      institution: Max Planck Institute for Meteorology
+      citation: Takasuka, D., Satoh, M., Miyakawa, T. et al. A protocol and analysis of year-long simulations of global storm-resolving models and beyond. Prog Earth Planet Sci 11, 66 (2024). https://doi.org/10.1186/s40645-024-00668-1
