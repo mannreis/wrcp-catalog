@@ -350,7 +350,7 @@ sources:
         type: int
 #    metadata in NCAR catalog
 
-  nicam:
+  nicam_gl11:
     args:
       chunks: null
       consolidated: true
