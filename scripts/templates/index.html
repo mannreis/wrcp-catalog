@@ -155,7 +155,7 @@
 
         <h2>Datasets</h2>
         <ul class="dslist">
-            {% for id, mlds in mldss.items() %}
+            {% for id, mlds in mldss | dictsort (true) %}
             <li>
                 <h3 class="id">{{ id }} <span class="smaller">{{ mlds | default_params }}</span></h3>
                 <table class="compact">
