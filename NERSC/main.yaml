@@ -220,12 +220,12 @@ sources:
         default: IMERG
         description: Instrument or dataset name
         type: str
-        zoom:
-          allowed:
-          - 9
-          default: 9
-          description: zoom resolution of the dataset
-          type: int
+      zoom:
+        allowed:
+        - 9
+        default: 9
+        description: zoom resolution of the dataset
+        type: int
     metadata:
       project: global_hackathon
       time_start: 2019-01-01T00:00:00
@@ -350,3 +350,37 @@ sources:
         type: int
 #    metadata in NCAR catalog
 
+  nicam:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: >
+        {% with time_map = {'PT1H': '1h', 'PT3H': '3h', 'PT6H' : '6h'} ,  dims_map = {'PT1H': '2d', 'PT3H': '2d', 'PT6H' : '3d'}  -%}
+        /global/cfs/cdirs/m4581/gsharing/hackathon/NICAM/NICAM_{{ dims_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
+        {%- endwith %}
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - PT3H
+        - PT6H
+        default: PT3H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+#        - 9
+#        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+#    metadata in JAPAN catalog
