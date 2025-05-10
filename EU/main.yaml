@@ -227,17 +227,27 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /work/bm1235/k203123/dy3ha-p/experiments/d3hp003aug/outdata/d3hp003aug.zarr/{{ time_method }}_z{{ zoom }}_atm
+      urlpath: /work/bm1235/k203123/dy3ha-p/experiments/d3hp003aug/outdata/d3hp003aug.zarr/{{ time }}_{{ time_method }}_z{{ zoom }}_atm
     driver: zarr
     description: Atmosphere-only simulation at 2.5 km resolution
     parameters:
+    driver: zarr
+    description: Atmosphere-only simulation at 2.5 km resolution
+    parameters:
+      time:
+        allowed:
+        - PT15M
+        - PT3H
+        - PT6H
+        default: PT15M
+        description: time resolution of the dataset
+        type: str
       time_method:
         allowed:
-        - PT15M_inst
-        - PT3H_mean
-        - PT6H_mean
-        default: PT15M_inst
-        description: time resolution & time method of the dataset
+          - mean
+          - inst
+        default: inst
+        description: time subsetting method
         type: str
       zoom:
         allowed:
