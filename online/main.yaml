@@ -110,13 +110,20 @@ sources:
     driver: zarr
     description: Atmosphere-only simulation at 2.5 km resolution
     parameters:
+      time:
+        allowed:
+        - PT15M
+        - PT3H
+        - PT6H
+        default: PT15M
+        description: time resolution of the dataset
+        type: str
       time_method:
         allowed:
-        - PT15M_inst
-        - PT3H_mean
-        - PT6H_mean
-        default: PT15M_inst
-        description: time resolution & time method of the dataset
+        - mean
+        - inst
+        default: inst
+        description: time subsetting method
         type: str
       zoom:
         allowed:
@@ -165,13 +172,20 @@ sources:
     driver: zarr
     description: Atmosphere-only simulation at 2.5 km resolution
     parameters:
+      time:
+        allowed:
+        - PT15M
+        - PT3H
+        - PT6H
+        default: PT15M
+        description: time resolution of the dataset
+        type: str
       time_method:
         allowed:
-        - PT15M_inst
-        - PT3H_mean
-        - PT6H_mean
-        default: PT15M_inst
-        description: time resolution & time method of the dataset
+        - mean
+        - inst
+        default: inst
+        description: time subsetting method
         type: str
       zoom:
         allowed:
