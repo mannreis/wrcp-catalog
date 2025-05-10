@@ -274,6 +274,7 @@ sources:
         allowed:
         - PT1H
         - PT3H
+        - static
         default: PT1H
         description: time resolution of the dataset
         type: str
@@ -428,6 +429,7 @@ sources:
         allowed:
         - PT1H
         - PT3H
+        - static
         default: PT1H
         description: time resolution of the dataset
         type: str
@@ -459,6 +461,7 @@ sources:
         allowed:
         - PT1H
         - PT3H
+        - static
         default: PT1H
         description: time resolution of the dataset
         type: str
