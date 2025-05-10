@@ -542,4 +542,33 @@ sources:
         default: 2
         description: zoom resolution of the dataset
         type: int
+    metadata:
+      project: global_hackathon
+      experiment_id: dyamond3
+      source_id: SCREAM
+      simulation_id: cess-control.ne1024pg2_ne1024pg2.F2010-SCREAMv1.cess-oct2
+      time_start: 2019-08-01T00:00:00
+      time_end: 2020-09-01T00:00:00
+      title: SCREAM CESS experiment subset for Hamburg node
+      summary: |
+        Subset of what is available via Globus.
+        Each entry merges existing datasets as follows:
+         
+        scream_PT1H (Resolution 0-10):
+          * scream2D_hrly_pr_hp*_v7
+          * scream2D_hrly_rlut_hp*_v7
+        scream_PT3H (Resolution 0-8): 
+          * scream2D_ne120_all_hp*_v7
+          * scream3D_ne120_hus_hp*_v7
+        scream_P1D (Resolution 0-8):
+          * scream_lnd_mrso_hp*_v4
+          * scream_lnd_swe_hp*_v4
+
+      references: https://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
+      reprocessed_by: Manuel Reis
+      creator_name: Andrew Gettelman & Manuel Reis
+      creator_email:
+       - andrew.gettelman@pnnl.gov
+       - reis@dkrz.de
+      institution: U.S. Department of Energy, E3SM Project
     # metadata is in the NERSC catalog
