@@ -35,7 +35,16 @@ sources:
       simulation_id: unknown
       time_start: 2020-01-20T00:00:00
       time_end: 2020-03-05T00:00:00
-      summary: Atmosphere-land simulation at 3.75km grid spacing. Run from 2020-01-20 to 2020-03-05.
+      summary: |
+         Atmosphere-land simulation at 3.75km grid spacing. Run from 2020-01-20 to 2020-03-05.
+
+         **Resolutions**
+           * All data is available at HEALPix levels 1-10 for 2D fields only
+
+         **Processing**
+           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+           * Lower levels were generated from this using coarse-graining.
+         
       creator_name: Bill Skamarock
       institution: NSF National Center for Atmospheric Research
   scream2D_hrly:
