@@ -149,7 +149,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /glade/derecho/scratch/digital-earths-hackathon/conus404/healpix/conus404_{{year}}_*_hp{{zoom}}.zarr
+      urlpath: /glade/derecho/scratch/digital-earths-hackathon/conus404/healpix/conus404_*_hp{{zoom}}.zarr
     driver: zarr
     parameters:
       zoom:
@@ -160,32 +160,6 @@ sources:
         - 7
         default: 8
         description: zoom resolution of the dataset
-        type: int
-      year:
-        allowed:
-        - 2000
-        - 2001
-        - 2002
-        - 2003
-        - 2004
-        - 2005
-        - 2006
-        - 2007
-        - 2008
-        - 2009
-        - 2010
-        - 2011
-        - 2012
-        - 2013
-        - 2014
-        - 2015
-        - 2016
-        - 2017
-        - 2018
-        - 2019
-        - 2020
-        default: 2020
-        description: year of the dataset
         type: int
     metadata:
       project: global_hackathon
