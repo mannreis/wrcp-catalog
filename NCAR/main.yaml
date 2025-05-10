@@ -39,13 +39,61 @@ sources:
          Atmosphere-land simulation at 3.75km grid spacing. Run from 2020-01-20 to 2020-03-05.
 
          **Resolutions**
-           * All data is available at HEALPix levels 1-10 for 2D fields only
+           * All data is available at HEALPix levels 1-10 for 2D fields
 
          **Processing**
            * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
            * Lower levels were generated from this using coarse-graining.
          
       creator_name: Bill Skamarock
+      institution: NSF National Center for Atmospheric Research
+  mpas_dyamond1:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND1/{{time}}/DYAMOND_diag_{{time}}_to_hp{{zoom}}.zarr
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - 15min
+        default: 15min
+        description: temporal resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        default: 7
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      title: NCAR MPAS 3.75km simulation (partial DYAMOND1)
+      project: global_hackathon
+      experiment_id: dyamond1
+      source_id: MPAS
+      simulation_id: unknown
+      time_start: 2016-08-01T00:00:00
+      time_end: 2016-09-10T00:00:00
+      summary: |
+         Atmosphere-land simulation at 3.75km grid spacing. Run from 2020-01-20 to 2020-03-05.
+
+         **Resolutions**
+           * All data is available at HEALPix levels 1-10 for 2D fields
+
+         **Processing**
+           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+           * Lower levels were generated from this using coarse-graining.
+         
+      creator_name: Falko Judt
       institution: NSF National Center for Atmospheric Research
   scream2D_hrly:
     args:
