@@ -60,3 +60,22 @@ sources:
           * 3d6h fields are generated on 25 pressure levels as instantaneous values starting at 6-hourly interval.
 
       references: https://doi.org/10.1029/2023MS003701
+  nicam_gl11_latlon:
+    args:
+      urlpath: >
+        {% with time_map = {'PT1H': '1h', 'PT3H': '3h', 'PT6H' : '6h'} ,  dims_map = {'PT1H': '2d', 'PT3H': '2d', 'PT6H' : '3d'}  -%}
+        /large/sftpgo/data/NICAM/hackathon/latlon/0.25deg/{{ dims_map[time] }}{{ time_map[time] }}/*.nc
+        {%- endwith %}
+    driver: netcdf
+    parameters:
+      time:
+        allowed:
+        - PT3H
+        - PT6H
+        default: PT3H
+        description: time resolution of the dataset
+        type: str
+    metadata:
+      title: NICAM 3.5 km simulation
+      summary: |
+        This is the data from `nicam_gl11`, but on a lat/lon grid.
