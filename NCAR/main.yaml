@@ -3,7 +3,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND3/{{time}}/DYAMOND3_diag_{{time}}_to_hp{{zoom}}.zarr
+      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND3/{{time}}/DYAMOND3_*_{{time}}_to_hp{{zoom}}.zarr
     driver: zarr
     parameters:
       time:
@@ -11,6 +11,7 @@ sources:
         - 30min
         - 1hr
         - 3hr
+        - 6hr
         default: 30min
         description: temporal resolution of the dataset
         type: str
