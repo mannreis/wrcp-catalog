@@ -2,8 +2,17 @@ sources:
   IR_IMERG:
     args:
       consolidated: true
-      urlpath: http://hackathon-o.s3.jc.rl.ac.uk/obs-data/dev/v1/IR_IMERG_combined/IR_IMERG_combined_V07B.hp_z9.zarr
+      urlpath: http://hackathon-o.s3.jc.rl.ac.uk/obs-data/dev/v1/IR_IMERG_combined/IR_IMERG_combined_V07B.hp_z{{ zoom }}.zarr
     driver: zarr
+    parameters:
+      zoom:
+        allowed:
+          - 9
+        default: 9
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      title: NCEP/CPC 4km Global (60N - 60S) IR Dataset
   um_glm_n1280_GAL9:
     args:
       chunks: null

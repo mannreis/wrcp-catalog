@@ -29,8 +29,15 @@ sources:
   IR_IMERG:
     args:
       consolidated: true
-      urlpath: https://hackathon-o.s3-ext.jc.rl.ac.uk/obs-data/dev/v1/IR_IMERG_combined/IR_IMERG_combined_V07B.hp_z9.zarr
+      urlpath: https://hackathon-o.s3-ext.jc.rl.ac.uk/obs-data/dev/v1/IR_IMERG_combined/IR_IMERG_combined_V07B.hp_z{{ zoom }}.zarr
     driver: zarr
+    parameters:
+      zoom:
+        allowed:
+          - 9
+        default: 9
+        description: zoom resolution of the dataset
+        type: int
   icon_ngc4008:
     args:
       chunks: null

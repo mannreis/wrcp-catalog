@@ -207,39 +207,19 @@ sources:
       creator_email: zhe.feng@pnnl.gov
       institution: Pacific Northwest National Laboratory (PNNL)
 
-  obs:
+  IR_IMERG:
     args:
       chunks: null
       consolidated: true
-      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/OBS/{{ dataset }}_*_hp{{ zoom }}.zarr
+      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/OBS/IMERG_*_hp{{ zoom }}.zarr
     driver: zarr
     parameters:
-      dataset:
-        allowed:
-        - IMERG
-        default: IMERG
-        description: Instrument or dataset name
-        type: str
       zoom:
         allowed:
         - 9
         default: 9
         description: zoom resolution of the dataset
         type: int
-    metadata:
-      project: global_hackathon
-      time_start: 2019-01-01T00:00:00
-      time_end: 2022-01-01T00:00:00
-      title: Observational data on HEALPix grid
-      summary: |
-        Observational data for the hackathon.
-    
-        **Resolutions**
-          *  Levels 9 for 2D fields.
-      creator_name: Zhe Feng
-      creator_email: zhe.feng@pnnl.gov
-      institution: Pacific Northwest National Laboratory (PNNL)
-
   icon_d3hp003:
     args:
       chunks: null
