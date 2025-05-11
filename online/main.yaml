@@ -599,11 +599,4 @@ sources:
         default: 9
         description: zoom resolution of the dataset
         type: int
-    metadata:
-      source_id: CAS-ESM2.0
-      simulation_id: nocumulus
-      time_start: 2020-01-01T00:00:00
-      time_end: 2021-03-01T00:00:00
-      title: CAS-ESM 10 km simulation
-      summary: |
-        Atmosphere-only simulation at 10 km resolution.
+ # metadata in CN node
