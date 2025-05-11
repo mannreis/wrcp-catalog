@@ -484,7 +484,7 @@ sources:
         description: zoom resolution of the dataset
         type: int
     # metadata is in the UK catalog
-  nicam:
+  nicam_gl11:
     args:
       chunks: null
       consolidated: true
