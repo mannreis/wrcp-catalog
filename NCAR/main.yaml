@@ -8,8 +8,10 @@ sources:
     parameters:
       time:
         allowed:
+        - 30min
         - 1hr
-        default: 1hr
+        - 3hr
+        default: 30min
         description: temporal resolution of the dataset
         type: str
       zoom:
