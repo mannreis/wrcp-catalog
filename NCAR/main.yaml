@@ -3,7 +3,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND3/{{time}}/DYAMOND_diag_{{time}}_to_hp{{zoom}}.zarr
+      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND3/{{time}}/DYAMOND3_diag_{{time}}_to_hp{{zoom}}.zarr
     driver: zarr
     parameters:
       time:

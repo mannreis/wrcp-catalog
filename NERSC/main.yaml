@@ -207,6 +207,39 @@ sources:
       creator_email: zhe.feng@pnnl.gov
       institution: Pacific Northwest National Laboratory (PNNL)
 
+  obs:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/OBS/{{ dataset }}_*_hp{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      dataset:
+        allowed:
+        - IMERG
+        default: IMERG
+        description: Instrument or dataset name
+        type: str
+      zoom:
+        allowed:
+        - 9
+        default: 9
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      project: global_hackathon
+      time_start: 2019-01-01T00:00:00
+      time_end: 2022-01-01T00:00:00
+      title: Observational data on HEALPix grid
+      summary: |
+        Observational data for the hackathon.
+    
+        **Resolutions**
+          *  Levels 9 for 2D fields.
+      creator_name: Zhe Feng
+      creator_email: zhe.feng@pnnl.gov
+      institution: Pacific Northwest National Laboratory (PNNL)
+
   icon_d3hp003:
     args:
       chunks: null
@@ -250,36 +283,36 @@ sources:
         type: int
     # metadata is in the EU Catalog
 
-  um_glm_n2560_RAL3p3:
-    args:
-      chunks: null
-      consolidated: true
-      urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/UM/glm.n2560_RAL3p3/data.healpix.{{ time }}.z{{ zoom }}.zarr
-    driver: zarr
-    parameters:
-      time:
-        allowed:
-        - PT1H
-        - PT3H
-        default: PT1H
-        description: time resolution of the dataset
-        type: str
-      zoom:
-        allowed:
-        - 10
-        - 9
-        - 8
-        - 7
-        - 6
-        - 5
-        - 4
-        - 3
-        - 2
-        - 1
-        default: 8
-        description: zoom resolution of the dataset
-        type: int
-    # metadata is in the UK catalog
+  # um_glm_n2560_RAL3p3:
+  #   args:
+  #     chunks: null
+  #     consolidated: true
+  #     urlpath: /global/cfs/cdirs/m4581/gsharing/hackathon/UM/glm.n2560_RAL3p3/data.healpix.{{ time }}.z{{ zoom }}.zarr
+  #   driver: zarr
+  #   parameters:
+  #     time:
+  #       allowed:
+  #       - PT1H
+  #       - PT3H
+  #       default: PT1H
+  #       description: time resolution of the dataset
+  #       type: str
+  #     zoom:
+  #       allowed:
+  #       - 10
+  #       - 9
+  #       - 8
+  #       - 7
+  #       - 6
+  #       - 5
+  #       - 4
+  #       - 3
+  #       - 2
+  #       - 1
+  #       default: 8
+  #       description: zoom resolution of the dataset
+  #       type: int
+  #   # metadata is in the UK catalog
 
   wrf_samerica:
     args:
@@ -317,3 +350,37 @@ sources:
         type: int
 #    metadata in NCAR catalog
 
+  nicam_gl11:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: >
+        {% with time_map = {'PT1H': '1h', 'PT3H': '3h', 'PT6H' : '6h'} ,  dims_map = {'PT1H': '2d', 'PT3H': '2d', 'PT6H' : '3d'}  -%}
+        /global/cfs/cdirs/m4581/gsharing/hackathon/NICAM/NICAM_{{ dims_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
+        {%- endwith %}
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - PT3H
+        - PT6H
+        default: PT3H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+#        - 9
+#        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+#    metadata in JAPAN catalog
