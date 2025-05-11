@@ -17,15 +17,21 @@ sources:
     driver: zarr
     parameters:
       zoom:
-        allowed: [8, 7]
+        allowed: [8, 7, 6, 5, 4, 3, 2, 1, 0]
         default: 7
         description: zoom resolution of the dataset
         type: int
   MERRA2:
     args:
       consolidated: true
-      urlpath: https://swift.dkrz.de/v1/dkrz_41caca03ec414c2f95f52b23b775134f/reanalysis/v1/MERRA2_P1M_7.zarr
+      urlpath: https://swift.dkrz.de/v1/dkrz_41caca03ec414c2f95f52b23b775134f/reanalysis/v1/MERRA2_P1M_{{ zoom }}.zarr
     driver: zarr
+    parameters:
+      zoom:
+        allowed: [7, 6, 5, 4, 3, 2, 1, 0]
+        default: 7
+        description: zoom resolution of the dataset
+        type: int
   IR_IMERG:
     args:
       consolidated: true
