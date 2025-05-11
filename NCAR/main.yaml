@@ -12,7 +12,7 @@ sources:
         - 1hr
         - 3hr
         - 6hr
-        default: 30min
+        default: 1hr
         description: temporal resolution of the dataset
         type: str
       zoom:
