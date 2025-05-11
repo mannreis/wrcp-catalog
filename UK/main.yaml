@@ -12,7 +12,7 @@ sources:
         description: zoom resolution of the dataset
         type: int
     metadata:
-      title: NCEP/CPC 4km Global (60N - 60S) IR Dataset
+      title: NCEP/CPC 4km Global (60N - 60S) IR and GPM IMERG (precipitation) Dataset
   um_glm_n1280_GAL9:
     args:
       chunks: null
