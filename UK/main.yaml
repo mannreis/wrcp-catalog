@@ -13,6 +13,12 @@ sources:
         type: int
     metadata:
       title: NCEP/CPC 4km Global (60N - 60S) IR and GPM IMERG (precipitation) Dataset
+      time_start: 2019-01-01T00:00:00
+      time_end: 2022-01-01T00:00:00
+      creator_name: Zhe Feng, Mark Muetzelfeldt
+      creator_email: zhe.feng@pnnl.gov, mark.muetzelfeldt@reading.ac.uk
+      history: Obtained and processed by Zhe Feng. Converted to healpix by Mark Muetzelfeldt.
+      institution: Pacific Northwest National Laboratory (PNNL)
   um_glm_n1280_GAL9:
     args:
       chunks: null
