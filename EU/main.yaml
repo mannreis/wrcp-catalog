@@ -141,7 +141,7 @@ sources:
       source: ICON Model
       institution: Max Planck Institute for Meteorology
       citation: Takasuka, D., Satoh, M., Miyakawa, T. et al. A protocol and analysis of year-long simulations of global storm-resolving models and beyond. Prog Earth Planet Sci 11, 66 (2024). https://doi.org/10.1186/s40645-024-00668-1
-  casesm2_nocumulus:
+  casesm2_10km_nocumulus:
     args:
       chunks: null
       consolidated: true

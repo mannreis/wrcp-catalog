@@ -718,7 +718,7 @@ sources:
        - reis@dkrz.de
       institution: U.S. Department of Energy, E3SM Project
     # metadata is in the NERSC catalog
-  casesm2_nocumulus:
+  casesm2_10km_nocumulus:
     args:
       chunks: null
       consolidated: true
