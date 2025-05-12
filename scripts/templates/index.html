@@ -165,6 +165,10 @@
                 background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
                 background-attachment: local, local, scroll, scroll;
             }
+
+            img.inline {
+                height: 1em;
+            }
         </style>
     </head>
     <body>
@@ -202,7 +206,11 @@
         <ul class="dslist">
             {% for id, mlds in mldss | dictsort (true) %}
             <li>
-                <h3 class="id">{{ id }} <span class="smaller">{{ mlds | default_params }}</span></h3>
+                <h3 class="id">{{ id }} <span class="smaller">{{ mlds | default_params }}</span>
+                    {% if gridlook_url(mlds) %}
+                    <a href="https://gridlook.pages.dev/#{{ mlds | gridlook_url }}"><img class="inline" src="gridlook.svg" /></a>
+                    {% endif %}
+                </h3>
                 <table class="compact">
                     {% for name, allowed in max_allowed_params(mlds).items() %}
                     <tr><td class="id">{{ name }}:</td><td class="code">{{ allowed | raw_list }}</td></tr>
