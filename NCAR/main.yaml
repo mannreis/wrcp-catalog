@@ -3,10 +3,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: >
-        {% with time_map = {'PT15M': '15min', 'PT1H': '1hr', 'PT3H': '3hr', 'PT6H': '6hr'} -%}
-        /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND3/{{time_map[time]}}/DYAMOND3_*_{{time_map[time]}}_to_hp{{zoom}}.zarr
-        {%- endwith %}
+      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND3/{{time}}/DYAMOND3_*_{{time}}_to_hp{{zoom}}.zarr
     driver: zarr
     parameters:
       time:
@@ -53,20 +50,66 @@ sources:
          
       creator_name: Bill Skamarock
       institution: NSF National Center for Atmospheric Research
+  mpas_dyamond2:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND2/{{time}}/DYAMOND2_*_{{time}}_to_hp{{zoom}}.zarr
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT3H
+        default: PT3H
+        description: temporal resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 10
+        - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        default: 7
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      title: NCAR MPAS 3.75km simulation (partial DYAMOND2)
+      project: global_hackathon
+      experiment_id: dyamond2
+      source_id: MPAS
+      simulation_id: unknown
+      time_start: 2020-01-20T00:00:00
+      time_end: 2020-03-01T00:00:00
+      summary: |
+         Atmosphere-land simulation at 3.75km grid spacing. Run from 2020-01-20 to 2020-03-01.
+
+         **Resolutions**
+           * All data is available at HEALPix levels 1-10 for 2D fields
+
+         **Processing**
+           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+           * Lower levels were generated from this using coarse-graining.
+         
+      creator_name: Falko Judt
+      institution: NSF National Center for Atmospheric Research
   mpas_dyamond1:
     args:
       chunks: null
       consolidated: true
-      urlpath: >
-        {% with time_map = {'PT15M': '15min'} -%}
-        /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND1/{{time_map[time]}}/DYAMOND1_diag_{{time_map[time]}}_to_hp{{zoom}}.zarr
-        {%- endwith %}
+      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND1/{{time}}/DYAMOND1_*_{{time}}_to_hp{{zoom}}.zarr
     driver: zarr
     parameters:
       time:
         allowed:
         - PT15M
-        default: PT15M
+        - PT3H
+        default: PT3H
         description: temporal resolution of the dataset
         type: str
       zoom:
@@ -93,7 +136,7 @@ sources:
       time_start: 2016-08-01T00:00:00
       time_end: 2016-09-10T00:00:00
       summary: |
-         Atmosphere-land simulation at 3.75km grid spacing. Run from 2020-01-20 to 2020-03-05.
+         Atmosphere-land simulation at 3.75km grid spacing. Run from 2016-08-01 to 2016-09-10.
 
          **Resolutions**
            * All data is available at HEALPix levels 1-10 for 2D fields
