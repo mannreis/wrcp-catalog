@@ -294,14 +294,9 @@ sources:
     args:
       chunks: auto
       consolidated: true
-      urlpath: 
-        - >
+      urlpath: >
           {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
-          https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_2.8-AMIP-production.2D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/kerchunk
-          {%- endwith %}
-        - >
-          {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
-          https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_2.8-AMIP-production.3D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/kerchunk
+          https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_2.8-AMIP-production/{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
           {%- endwith %}
     driver: zarr
     parameters:
@@ -322,7 +317,7 @@ sources:
     metadata:
       title: IFS 2.8km simulation (RCBMF), original IFS variables
       summary: |
-        Atmosphere-only simulation at 2.8 km resolution, with reduced cloud base mass flux. Run for 1 year and 2 months, starting in 2020. (Online access via EERIE cloud).
+        Atmosphere-only simulation at 2.8 km resolution, with reduced cloud base mass flux. Run for 1 year and 2 months, starting in 2020.
 
         **General**:
           * The Integrated Forecasting System (IFS), developed at ECMWF, is a spectral-transform atmospheric model with two-time-level semi-implicit, semi-Lagrangian time stepping (Temperton et al., 2001; Hortal, 2002; Diamantakis and Váňa, 2021). It is here running in atmosphere-only mode, that is without an ocean model. It is still coupled to the interactive land and ocean wave models.
@@ -330,7 +325,7 @@ sources:
 
         **Simulation**:
           * This is one of two new atmosphere-only IFS simulations. This one is at 2.8 km resolution, with the other one (ifs_tco2559_rcbmf) is at 4.4 km. The simulations are started on 01.01.2020 and run for 14 months, ending on 01.03.2021. The two simulations differ only in their resolution. Both simulations use "reduced cloud base mass flux" (RCBMF) which has the shallow convection scheme fully active and the deep convection scheme weakly active (with a strongly reduced cloud base mass flux), in agreement with 9 km nextGEMS production simulations.
-          * This atmosphere-only simulation is complementary to the coupled IFS-FESOM simulations. It differs from ifs_tco3999-ng5_rcbmf only by the replacement of the ocean model with observed SST forcing.
+          * This atmosphere-only simulation is complementary to the 2.8 km coupled IFS-FESOM simulations. It differs from ifs_tco3999-ng5_rcbmf only by the replacement of the ocean model with observed SST forcing.
 
         **Processing**:
           * This dataset uses default IFS naming of variables. Please refer to the [parameter database](https://codes.ecmwf.int/grib/param-db/) for more information on the available variables.
