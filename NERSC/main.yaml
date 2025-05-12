@@ -342,7 +342,7 @@ sources:
     parameters:
       time:
         allowed:
-        - PT1H
+#        - PT1H
         - PT3H
         - PT6H
         default: PT3H
