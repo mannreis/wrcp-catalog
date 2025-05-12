@@ -45,7 +45,7 @@ sources:
            * All data is available at HEALPix levels 1-10 for 2D fields
 
          **Processing**
-           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+           * Fields were remapped to HEALPix level 10 using Delaunay triangulation. 
            * Lower levels were generated from this using coarse-graining.
          
       creator_name: Bill Skamarock
@@ -93,7 +93,7 @@ sources:
            * All data is available at HEALPix levels 1-10 for 2D fields
 
          **Processing**
-           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+           * Fields were remapped to HEALPix level 10 using Delaunay triangulation. 
            * Lower levels were generated from this using coarse-graining.
          
       creator_name: Falko Judt
@@ -142,7 +142,7 @@ sources:
            * All data is available at HEALPix levels 1-10 for 2D fields
 
          **Processing**
-           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+           * Fields were remapped to HEALPix level 10 using Delaunay triangulation. 
            * Lower levels were generated from this using coarse-graining.
          
       creator_name: Falko Judt
@@ -247,7 +247,7 @@ sources:
 
         **Processing**
           * Fields were sextracted from raw data
-          * Then remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+          * Then remapped to HEALPix level 10 using Delaunay triangulation. 
           * Lower levels were generated from this using coarse-graining.
       references: https://rda.ucar.edu/datasets/d616000
       creator_name: Andrew Gettelman, Julia Kukulies 
@@ -286,7 +286,7 @@ sources:
 
         **Processing**
           * Fields were extracted from raw data
-          * Then remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+          * Then remapped to HEALPix level 10 using Delaunay triangulation. 
           * Lower levels were generated from this using coarse-graining.
       references: https://rda.ucar.edu/datasets/d559000/
       creator_name: Julia Kukulies 

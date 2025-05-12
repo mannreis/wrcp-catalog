@@ -37,7 +37,7 @@ sources:
           * Atmosphere data at levels 0-10 for 2D fields. 
 
         **Processing**
-          * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+          * Fields were remapped to HEALPix level 10 using Delaunay triangulation. 
           * Lower levels were generated from this using coarse-graining.
       references: https://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
       creator_name: Andrew Gettelman
@@ -82,7 +82,7 @@ sources:
 
         **Processing**
           * Fields were saved as coarse (25km, ne120) data
-          * Then remapped to HEALPix level 8 using nearest-neighbor interpolation. 
+          * Then remapped to HEALPix level 8 using Delaunay triangulation. 
           * Lower levels were generated from this using coarse-graining.
       references: https://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
       creator_name: Andrew Gettelman
@@ -170,7 +170,7 @@ sources:
 
         **Processing**
           * Fields were saved as coarse (25km, ne120) data
-          * Then remapped to HEALPix level 8 using nearest-neighbor interpolation. 
+          * Then remapped to HEALPix level 8 using Delaunay triangulation. 
           * Lower levels were generated from this using coarse-graining.
       references: https://github.com/digital-earths-global-hackathon/hk25/blob/main/content/models/scream.md
       creator_name: Andrew Gettelman
