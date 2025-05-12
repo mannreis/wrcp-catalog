@@ -350,8 +350,8 @@ sources:
         type: str
       zoom:
         allowed:
-#        - 9
-#        - 8
+        - 9
+        - 8
         - 7
         - 6
         - 5
