@@ -331,7 +331,7 @@ sources:
 
         **Simulation**:
           * This is one of two new atmosphere-only IFS simulations. This one is at 2.8 km resolution, with the other one (ifs_tco2559_rcbmf) is at 4.4 km. The simulations are started on 01.01.2020 and run for 14 months, ending on 01.03.2021. The two simulations differ only in their resolution. Both simulations use "reduced cloud base mass flux" (RCBMF) which has the shallow convection scheme fully active and the deep convection scheme weakly active (with a strongly reduced cloud base mass flux), in agreement with 9 km nextGEMS production simulations.
-          * This atmosphere-only simulation is complementary to the coupled IFS-FESOM simulations. It differs from ifs_tco3999-ng5_rcbmf only by the replacement of the ocean model with observed SST forcing.
+          * This atmosphere-only simulation is complementary to the 2.8 km coupled IFS-FESOM simulations. It differs from ifs_tco3999-ng5_rcbmf only by the replacement of the ocean model with observed SST forcing.
 
         **Processing**:
           * This dataset uses default IFS naming of variables. Please refer to the [parameter database](https://codes.ecmwf.int/grib/param-db/) for more information on the available variables.
@@ -387,7 +387,8 @@ sources:
 
         **Simulation**:
           * This is one of two new atmosphere-only IFS simulations. This one is at 4.4 km resolution, with the other one (ifs_tco3999_rcbmf) is at 2.8 km. The simulations are started on 01.01.2020 and run for 14 months, ending on 01.03.2021. The two simulations differ only in their resolution, and in slight differences in output treatment and availability. Both simulations use "reduced cloud base mass flux" (RCBMF) which has the shallow convection scheme fully active and the deep convection scheme weakly active (with a strongly reduced cloud base mass flux), in agreement with 9 km nextGEMS production simulations.
-          * The simulation has the same resolution as nextGEMS cycle 3 coupled runs, though some model updates have been done since then.
+          * The simulation has the same physics as the coupled nextGEMS production simulations.
+          * The simulation is closely aligned with the EERIE project and the AMIP simulations done there (1980-2023, 1 member at 9 km and 10 members at 28 km). Those runs use "deep-on" convection, not "RCBMF". A 6-month twin simulation at 4.4 km [exists](https://discover.dkrz.de/external/stac2.cloud.dkrz.de/fastapi/collections/eerie-eerie-ecmf-ifs-amip-tco2559-hist-v20240901) with "deep-on" settings.
 
         **Processing**:
           * This dataset uses default IFS naming of variables. Please refer to the [parameter database](https://codes.ecmwf.int/grib/param-db/) for more information on the available variables.
