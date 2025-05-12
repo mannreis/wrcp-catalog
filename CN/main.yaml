@@ -1,11 +1,11 @@
 sources:
-  casesm2_cumulus:
+  casesm2_10km_cumulus:
     args:
       chunks: null
       consolidated: true
       urlpath: >
         {% with time_map = {'PT3H': '3h', 'PT1H': '1h', 'PT6H': '6h'}, vert_map = {'PT3H': '2d', 'PT1H': '2d', 'PT6H': '3d'} -%}
-        /lustre/zhangh/hackathon/CAS-ESM2/post/test/CAS-ESM2_10km_cumulus_{{ vert_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
+        /data2/share/florain/CAS-ESM2_10km_cumulus_{{ vert_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
         {%- endwith %}
     driver: zarr
     parameters:
@@ -20,6 +20,15 @@ sources:
       zoom:
         allowed:
         - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
         default: 9
         description: zoom resolution of the dataset
         type: int
@@ -31,13 +40,13 @@ sources:
       title: CAS-ESM 10 km simulation
       summary: |
         Atmosphere-only simulation at 10 km resolution.
-  casesm2_nocumulus:
+  casesm2_10km_nocumulus:
     args:
       chunks: null
       consolidated: true
       urlpath: >
         {% with time_map = {'PT3H': '3h', 'PT1H': '1h', 'PT6H': '6h'}, vert_map = {'PT3H': '2d', 'PT1H': '2d', 'PT6H': '3d'} -%}
-        /lustre/zhangh/hackathon/CAS-ESM2/post/test/CAS-ESM2_10km_nocumulus_{{ vert_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
+        /data2/share/florain/CAS-ESM2_10km_nocumulus_{{ vert_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
         {%- endwith %}
     driver: zarr
     parameters:
@@ -52,6 +61,15 @@ sources:
       zoom:
         allowed:
         - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
         default: 9
         description: zoom resolution of the dataset
         type: int
