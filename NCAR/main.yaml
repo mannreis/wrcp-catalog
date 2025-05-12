@@ -3,7 +3,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND3/{{time}}/DYAMOND3_diag_{{time}}_to_hp{{zoom}}.zarr
+      urlpath: /glade/derecho/scratch/digital-earths-hackathon/mpas_DYAMOND3/{{time}}/DYAMOND3_*_{{time}}_to_hp{{zoom}}.zarr
     driver: zarr
     parameters:
       time:
@@ -11,7 +11,8 @@ sources:
         - 30min
         - 1hr
         - 3hr
-        default: 30min
+        - 6hr
+        default: 1hr
         description: temporal resolution of the dataset
         type: str
       zoom:
@@ -229,13 +230,13 @@ sources:
       time_end: 2020-12-31T23:00:00
       title: WRF Coterminus US Experiment (CONUS404)
       summary: |
-        2D hourly average Fields from the WRF CONUS404 experiment. Simulations are 40 years long, but only 2020 stored here.
+        2D hourly average Fields from the WRF (Weather and Research Forecast) CONUS404 experiment, i.e. regional down-scaled WRF model simulation at 4km grid spacing. Simulations are run from 1979-10-01 to 2022-09-30, but the HEALPix subdataset is available from 2000-10-01 to 2020-09-30.
     
         **Resolutions**
-          *  Levels 0-10 for 2D fields. 
+          *  Seven 2D variables are available at HEALPix levels 7-10. 
 
         **Processing**
-          * Fields were sextracted from raw data
+          * Fields were extracted from raw data
           * Then remapped to HEALPix level 10 using nearest-neighbor interpolation. 
           * Lower levels were generated from this using coarse-graining.
       references: https://rda.ucar.edu/datasets/d559000/
