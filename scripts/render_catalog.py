@@ -45,7 +45,11 @@ def gridlook_url(mlds):
     raw = mlds["raw"]["online"]
     if raw["driver"] != "zarr":
         return None
+    if mlds.get("metadata", {}).get("region", "global") != "global":
+        return None
     url = raw["args"]["urlpath"]
+    if isinstance(url, list):
+        url = url[0]
     if not isinstance(url, str):
         return None
 
