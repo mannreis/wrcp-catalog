@@ -45,7 +45,7 @@ sources:
            * All data is available at HEALPix levels 1-10 for 2D fields
 
          **Processing**
-           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+           * Fields were remapped to HEALPix level 10 using Delaunay triangulation. 
            * Lower levels were generated from this using coarse-graining.
          
       creator_name: Bill Skamarock
@@ -93,7 +93,7 @@ sources:
            * All data is available at HEALPix levels 1-10 for 2D fields
 
          **Processing**
-           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+           * Fields were remapped to HEALPix level 10 using Delaunay triangulation. 
            * Lower levels were generated from this using coarse-graining.
          
       creator_name: Falko Judt
@@ -142,7 +142,7 @@ sources:
            * All data is available at HEALPix levels 1-10 for 2D fields
 
          **Processing**
-           * Fields were remapped to HEALPix level 10 using nearest-neighbor interpolation. 
+           * Fields were remapped to HEALPix level 10 using Delaunay triangulation. 
            * Lower levels were generated from this using coarse-graining.
          
       creator_name: Falko Judt
