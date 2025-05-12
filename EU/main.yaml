@@ -295,19 +295,17 @@ sources:
     args:
       chunks: auto
       consolidated: false
-      urlpath: >
-        {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
-        reference::/work/bm1235/b382473/IFS_AMIP/production/parquets/tco3999-ng-rcbmf_end/{{ dim }}_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
-        {%- endwith %}
+      urlpath: 
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          reference::/work/bm1235/b382473/IFS_AMIP/production/parquets/tco3999-ng-rcbmf_end/2D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
+          {%- endwith %}
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          reference::/work/bm1235/b382473/IFS_AMIP/production/parquets/tco3999-ng-rcbmf_end/3D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
+          {%- endwith %}
     driver: zarr
     parameters:
-      dim:
-        allowed:
-        - 2D
-        - 3D
-        default: 2D
-        description: 2D and 3D version of the dataset
-        type: str
       time:
         allowed:
         - PT1H
@@ -352,19 +350,17 @@ sources:
     args:
       chunks: auto
       consolidated: false
-      urlpath: >
-        {% with time_map = {'PT1H': 'hourly', 'P1D': 'daily', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
-        reference::/work/bm1235/b382473/IFS_AMIP/production/parquets/tco2559-eerie_production_202407-rcbmf_combination/{{ dim }}_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
-        {%- endwith %}
+      urlpath: 
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1D': 'daily', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          reference::/work/bm1235/b382473/IFS_AMIP/production/parquets/tco2559-eerie_production_202407-rcbmf_combination/2D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
+          {%- endwith %}
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1D': 'daily', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          reference::/work/bm1235/b382473/IFS_AMIP/production/parquets/tco2559-eerie_production_202407-rcbmf_combination/3D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
+          {%- endwith %}
     driver: zarr
     parameters:
-      dim:
-        allowed:
-        - 2D
-        - 3D
-        default: 2D
-        description: 2D and 3D version of the dataset
-        type: str
       time:
         allowed:
         - PT1H

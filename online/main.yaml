@@ -294,19 +294,17 @@ sources:
     args:
       chunks: auto
       consolidated: true
-      urlpath: >
-        {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
-        https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_2.8-AMIP-production.{{ dim }}_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/kerchunk
-        {%- endwith %}
+      urlpath: 
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_2.8-AMIP-production.2D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/kerchunk
+          {%- endwith %}
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_2.8-AMIP-production.3D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/kerchunk
+          {%- endwith %}
     driver: zarr
     parameters:
-      dim:
-        allowed:
-        - 2D
-        - 3D
-        default: 2D
-        description: 2D and 3D version of the dataset
-        type: str
       time:
         allowed:
         - PT1H
@@ -351,19 +349,17 @@ sources:
     args:
       chunks: auto
       consolidated: false
-      urlpath: >
-        {% with time_map = {'PT1H': 'hourly', 'P1D': 'daily', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
-        https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_4.4-AMIP-production.{{ dim }}_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/kerchunk
-        {%- endwith %}
+      urlpath: 
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1D': 'daily', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_4.4-AMIP-production.2D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/kerchunk
+          {%- endwith %}
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1D': 'daily', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          https://eerie.cloud.dkrz.de/datasets/nextgems.IFS_4.4-AMIP-production.3D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}/kerchunk
+          {%- endwith %}
     driver: zarr
     parameters:
-      dim:
-        allowed:
-        - 2D
-        - 3D
-        default: 2D
-        description: 2D and 3D version of the dataset
-        type: str
       time:
         allowed:
         - PT1H
