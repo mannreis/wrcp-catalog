@@ -145,7 +145,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: /scratch/k/k207030/CAS_DATA/CAS-ESM2_10km_nocumulus_{{ time }}_z{{ zoom }}.zarr
+      urlpath: /work/bm1235/CAS_DATA/CAS-ESM2_10km_nocumulus_{{ time }}_z{{ zoom }}.zarr
     driver: zarr
     description: Atmosphere-only simulation at 10 km resolution
     parameters:
