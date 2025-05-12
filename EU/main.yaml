@@ -145,10 +145,7 @@ sources:
     args:
       chunks: null
       consolidated: true
-      urlpath: >
-        {% with time_map = {'PT3H': '3h', 'PT1H': '1h', 'PT6H': '6h'}, vert_map = {'PT3H': '2d', 'PT1H': '2d', 'PT6H': '3d'} -%}
-        /work/bm1235/for_kangjun/CAS-ESM2_10km_nocumulus_{{ vert_map[time] }}{{ time_map[time] }}_z{{ zoom }}.zarr
-        {%- endwith %}
+      urlpath: /scratch/k/k207030/CAS_DATA/CAS-ESM2_10km_nocumulus_{{ time }}_z{{ zoom }}.zarr
     driver: zarr
     description: Atmosphere-only simulation at 10 km resolution
     parameters:
@@ -163,6 +160,15 @@ sources:
       zoom:
         allowed:
         - 9
+        - 8
+        - 7
+        - 6
+        - 5
+        - 4
+        - 3
+        - 2
+        - 1
+        - 0
         default: 9
         description: zoom resolution of the dataset
         type: int
