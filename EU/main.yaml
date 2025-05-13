@@ -304,3 +304,114 @@ sources:
       source: ICON Model
       institution: Max Planck Institute for Meteorology
       citation: Takasuka, D., Satoh, M., Miyakawa, T. et al. A protocol and analysis of year-long simulations of global storm-resolving models and beyond. Prog Earth Planet Sci 11, 66 (2024). https://doi.org/10.1186/s40645-024-00668-1
+  ifs_tco3999_rcbmf:
+    args:
+      storage_options:
+        remote_protocol: file
+        lazy: true            
+      consolidated: false
+      urlpath: >
+          {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          reference::/work/bm1235/b382473/IFS_AMIP/production/parquets_2d3d/tco3999-ng-rcbmf_end/{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
+          {%- endwith %}
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - P1M
+        default: PT1H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 7
+        - 11
+        default: 7
+        description: zoom level of the dataset
+        type: int
+    metadata:
+      title: IFS 2.8km simulation (RCBMF), original IFS variables
+      summary: |
+        Atmosphere-only simulation at 2.8 km resolution, with reduced cloud base mass flux. Run for 1 year and 2 months, starting in 2020.
+
+        **General**:
+          * The Integrated Forecasting System (IFS), developed at ECMWF, is a spectral-transform atmospheric model with two-time-level semi-implicit, semi-Lagrangian time stepping (Temperton et al., 2001; Hortal, 2002; Diamantakis and Váňa, 2021). It is here running in atmosphere-only mode, that is without an ocean model. It is still coupled to the interactive land and ocean wave models.
+          * This simulation is at 2.8km in atmosphere-only mode, with SST and sea ice concentration being provided by ESA CCI v3.0.1.
+
+        **Simulation**:
+          * This is one of two new atmosphere-only IFS simulations. This one is at 2.8 km resolution, with the other one (ifs_tco2559_rcbmf) is at 4.4 km. The simulations are started on 01.01.2020 and run for 14 months, ending on 01.03.2021. The two simulations differ only in their resolution. Both simulations use "reduced cloud base mass flux" (RCBMF) which has the shallow convection scheme fully active and the deep convection scheme weakly active (with a strongly reduced cloud base mass flux), in agreement with 9 km nextGEMS production simulations.
+          * This atmosphere-only simulation is complementary to the 2.8 km coupled IFS-FESOM simulations. It differs from ifs_tco3999-ng5_rcbmf only by the replacement of the ocean model with observed SST forcing.
+
+        **Processing**:
+          * This dataset uses default IFS naming of variables. Please refer to the [parameter database](https://codes.ecmwf.int/grib/param-db/) for more information on the available variables.
+          * Output is written to HEALPix H2048 (zoom level 11, about 3 km resolution), and to H128 (level 7, about 50 km resolution). The remapping to zoom level 7 used conservative interpolation for the 2D variables and linear interpolation for the 3D variables. Remapping to the high-resolution H2048 (level 11) was also done with linear interpolation. Output is available hourly (PT1H). In addition, we also provide monthly means (P1M), but only for those variables that are accumulated in time (all fluxes, e.g. radiation, precipitation, etc.).
+      license: Creative Commons CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
+      creator_name: Matthias Aengenheyster, Tobias Becker, Thomas Rackow, Xabier Pedruzo-Bagazgoitia
+      creator_email: matthias.aengenheyster@ecmwf.int, tobias.becker@ecmwf.int, thomas.rackow@ecmwf.int, xabier.pedruzo@ecmwf.int
+      source_id: IFS
+      simulation_id: RCBMF
+      time_start: 2020-01-01T00:00:00
+      time_end: 2021-03-01T00:00:00
+      references: https://doi.org/10.5194/gmd-18-33-2025, https://www.ecmwf.int/en/forecasts/documentation-and-support/changes-ecmwf-model, 
+      institution: European Centre for Medium-Range Weather Forecasts (ECMWF)
+      citation: Rackow, T., Pedruzo-Bagazgoitia, X., Becker, T., Milinski, S., Sandu, I., Aguridan, R., Bechtold, P., Beyer, S., Bidlot, J., Boussetta, S., Deconinck, W., Diamantakis, M., Dueben, P., Dutra, E., Forbes, R., Ghosh, R., Goessling, H. F., Hadade, I., Hegewald, J., Jung, T., Keeley, S., Kluft, L., Koldunov, N., Koldunov, A., Kölling, T., Kousal, J., Kühnlein, C., Maciel, P., Mogensen, K., Quintino, T., Polichtchouk, I., Reuter, B., Sármány, D., Scholz, P., Sidorenko, D., Streffing, J., Sützl, B., Takasuka, D., Tietsche, S., Valentini, M., Vannière, B., Wedi, N., Zampieri, L., and Ziemen, F. - Multi-year simulations at kilometre scale with the Integrated Forecasting System coupled to FESOM2.5 and NEMOv3.4, Geosci. Model Dev., 18, 33–69, https://doi.org/10.5194/gmd-18-33-2025, 2025.
+  ifs_tco2559_rcbmf:
+    args:
+      storage_options:
+        remote_protocol: file
+        lazy: true            
+      consolidated: false
+      urlpath: 
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1D': 'daily', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          reference::/work/bm1235/b382473/IFS_AMIP/production/parquets/tco2559-eerie_production_202407-rcbmf_combination/2D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
+          {%- endwith %}
+        - >
+          {% with time_map = {'PT1H': 'hourly', 'P1D': 'daily', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
+          reference::/work/bm1235/b382473/IFS_AMIP/production/parquets/tco2559-eerie_production_202407-rcbmf_combination/3D_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
+          {%- endwith %}
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT1H
+        - P1D
+        - P1M
+        default: PT1H
+        description: time resolution of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 7
+        - 10
+        default: 7
+        description: zoom level of the dataset
+        type: int
+    metadata:
+      title: IFS 4.4km simulation (RCBMF), original IFS variables
+      summary: |
+        Atmosphere-only simulation at 4.4 km resolution, with reduced cloud base mass flux. Run for 1 year and 2 months, starting in 2020.
+
+        **General**:
+          * The Integrated Forecasting System (IFS), developed at ECMWF, is a spectral-transform atmospheric model with two-time-level semi-implicit, semi-Lagrangian time stepping (Temperton et al., 2001; Hortal, 2002; Diamantakis and Váňa, 2021). It is here running in atmosphere-only mode, that is without an ocean model. It is still coupled to the interactive land and ocean wave models.
+          * This simulation is at 4.4km in atmosphere-only mode, with SST and sea ice concentration being provided by ESA CCI v3.0.1.
+
+        **Simulation**:
+          * This is one of two new atmosphere-only IFS simulations. This one is at 4.4 km resolution, with the other one (ifs_tco3999_rcbmf) is at 2.8 km. The simulations are started on 01.01.2020 and run for 14 months, ending on 01.03.2021. The two simulations differ only in their resolution, and in slight differences in output treatment and availability. Both simulations use "reduced cloud base mass flux" (RCBMF) which has the shallow convection scheme fully active and the deep convection scheme weakly active (with a strongly reduced cloud base mass flux), in agreement with 9 km nextGEMS production simulations.
+          * The simulation has the same physics as the coupled nextGEMS production simulations.
+          * The simulation is closely aligned with the EERIE project and the AMIP simulations done there (1980-2023, 1 member at 9 km and 10 members at 28 km). Those runs use "deep-on" convection, not "RCBMF". A 6-month twin simulation at 4.4 km [exists](https://discover.dkrz.de/external/stac2.cloud.dkrz.de/fastapi/collections/eerie-eerie-ecmf-ifs-amip-tco2559-hist-v20240901) with "deep-on" settings.
+
+        **Processing**:
+          * This dataset uses default IFS naming of variables. Please refer to the [parameter database](https://codes.ecmwf.int/grib/param-db/) for more information on the available variables.
+          * Output is written to HEALPix H1024 (zoom level 10, about 6 km resolution), and to H128 (level 7, about 50 km resolution). The remapping to healpix was done with linear interpolation (different to ifs_tco3999_rcbmf and the coupled tco3999 runs, which use conservative interpolation for H128 2D variables). Output is available hourly (PT1H), daily means (P1D) and monthly means (P1M). Daily and monthly means also include some min/max fields, these are compute on the model timestep. PT1H includes instantaneous fields (valid at the given timestep) and accumulated fields (fluxes, e.g. precipitation) accumulated over the 1-hour interval *preceding* the given timestep (precipitation at 12:00 has been accumulated between 11:00 and 12:00). Daily and monthly means have a timestep at the center of the time interval (e.g. daily means are written at 12:00).
+      license: Creative Commons CC BY 4.0. https://creativecommons.org/licenses/by/4.0/
+      creator_name: Matthias Aengenheyster, Tobias Becker, Thomas Rackow, Xabier Pedruzo-Bagazgoitia
+      creator_email: matthias.aengenheyster@ecmwf.int, tobias.becker@ecmwf.int, thomas.rackow@ecmwf.int, xabier.pedruzo@ecmwf.int
+      source_id: IFS
+      simulation_id: RCBMF
+      time_start: 2020-01-01T00:00:00
+      time_end: 2021-03-01T00:00:00
+      references: https://doi.org/10.5194/gmd-18-33-2025, https://www.ecmwf.int/en/forecasts/documentation-and-support/changes-ecmwf-model, 
+      institution: European Centre for Medium-Range Weather Forecasts (ECMWF)
+      citation: Rackow, T., Pedruzo-Bagazgoitia, X., Becker, T., Milinski, S., Sandu, I., Aguridan, R., Bechtold, P., Beyer, S., Bidlot, J., Boussetta, S., Deconinck, W., Diamantakis, M., Dueben, P., Dutra, E., Forbes, R., Ghosh, R., Goessling, H. F., Hadade, I., Hegewald, J., Jung, T., Keeley, S., Kluft, L., Koldunov, N., Koldunov, A., Kölling, T., Kousal, J., Kühnlein, C., Maciel, P., Mogensen, K., Quintino, T., Polichtchouk, I., Reuter, B., Sármány, D., Scholz, P., Sidorenko, D., Streffing, J., Sützl, B., Takasuka, D., Tietsche, S., Valentini, M., Vannière, B., Wedi, N., Zampieri, L., and Ziemen, F. - Multi-year simulations at kilometre scale with the Integrated Forecasting System coupled to FESOM2.5 and NEMOv3.4, Geosci. Model Dev., 18, 33–69, https://doi.org/10.5194/gmd-18-33-2025, 2025.
