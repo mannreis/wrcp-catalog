@@ -44,6 +44,17 @@ sources:
         default: 9
         description: zoom resolution of the dataset
         type: int
+  CERES_EBAF:
+    args: 
+      consolidated: true
+      urlpath: https://s3.eu-dkrz-1.dkrz.cloud/wrcp-hackathon/data/contributions/CERES/CERES_EBAF-TOA_Ed4.2.1_hp{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      zoom:
+        allowed: [6, 5, 4, 3, 2, 1, 0]
+        default: 6
+        description: zoom resolution of the dataset
+        type: int
   icon_ngc4008:
     args:
       chunks: null
