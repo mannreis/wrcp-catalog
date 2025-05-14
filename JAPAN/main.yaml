@@ -120,3 +120,26 @@ sources:
           **Simulation**
             * Horizontal grid: Glevel-15, 10737418240 control volumes (hexagon/pentagon), average interaval (dx) ~ 220 km
             * Vertical grid: 78 full levels with the model top of about 50 km
+  nicam_ecomip:
+    args:
+      urlpath: /work/share/ecomip/ecomip_hp_{{zoom}}.zarr
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+          - 10
+        default: 10
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      title: NICAM 3.5 km ECOMIP simulation
+      summary: |
+        * Resolution: 3.5 km
+        * Temporal resolution: 2D, 3D every 30 mins
+        * Turbulent scheme: MYNN2
+        * Microphysics scheme: NSW6
+        * Initial condition: ERA5 (2024/09/01 00UTC)
+        * Output period: From 2024/09/03 00:30 UTC to 2024/09/04 00:00 UTC
+
+        ss_tbb11um : simulated 11 micron brightness temperature like a geostationary satellite's
+      references: https://easy.gems.dkrz.de/DYAMOND/Summer/models/nicam.html
