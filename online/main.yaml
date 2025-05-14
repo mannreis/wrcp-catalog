@@ -775,6 +775,34 @@ sources:
         default: 0
         description: zoom resolution of the dataset
         type: int
+  nicam_220m_test:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: https://nowake.nicam.jp/files/220m/data_healpix_{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+          - 15
+          - 14
+          - 13
+          - 12
+          - 11
+          - 10
+          - 9
+          - 8
+          - 7
+          - 6
+          - 5
+          - 4
+          - 3
+          - 2
+          - 1
+          - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
   scream-dkrz:
     args:
       chunks: null
