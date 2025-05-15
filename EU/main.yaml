@@ -415,3 +415,36 @@ sources:
       references: https://doi.org/10.5194/gmd-18-33-2025, https://www.ecmwf.int/en/forecasts/documentation-and-support/changes-ecmwf-model, 
       institution: European Centre for Medium-Range Weather Forecasts (ECMWF)
       citation: Rackow, T., Pedruzo-Bagazgoitia, X., Becker, T., Milinski, S., Sandu, I., Aguridan, R., Bechtold, P., Beyer, S., Bidlot, J., Boussetta, S., Deconinck, W., Diamantakis, M., Dueben, P., Dutra, E., Forbes, R., Ghosh, R., Goessling, H. F., Hadade, I., Hegewald, J., Jung, T., Keeley, S., Kluft, L., Koldunov, N., Koldunov, A., Kölling, T., Kousal, J., Kühnlein, C., Maciel, P., Mogensen, K., Quintino, T., Polichtchouk, I., Reuter, B., Sármány, D., Scholz, P., Sidorenko, D., Streffing, J., Sützl, B., Takasuka, D., Tietsche, S., Valentini, M., Vannière, B., Wedi, N., Zampieri, L., and Ziemen, F. - Multi-year simulations at kilometre scale with the Integrated Forecasting System coupled to FESOM2.5 and NEMOv3.4, Geosci. Model Dev., 18, 33–69, https://doi.org/10.5194/gmd-18-33-2025, 2025.
+  arp-gem:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /work/bm1235/ARP_GEM/ARPGEM2_{{ resolution }}km_{{ time }}_{{ time_method }}_z{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      time:
+        allowed:
+        - PT6H
+        default: PT6H
+        description: time resolution of the dataset
+        type: str
+      time_method:
+        allowed:
+        - inst
+        - mean
+        default: inst
+        description: time method of the dataset
+        type: str
+      zoom:
+        allowed:
+        - 8
+        default: 8
+        description: zoom level of the dataset
+        type: int
+      resolution:
+        allowed:
+        - 1p3
+        - 2p6
+        default: 2p6
+        description: resolution of the simulation
+        type: str
