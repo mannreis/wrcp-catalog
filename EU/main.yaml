@@ -391,7 +391,7 @@ sources:
   ifs_tco3999-ng5_deepoff:
     args:
       chunks: auto
-      consolidated: true
+      consolidated: false
       urlpath: >
         {% with time_map = {'PT1H': 'hourly', 'P1M': 'monthly'}, zoom_map = {7: '128', 9: '512', 10: '1024', 11: '2048'} -%}
         reference::/work/bm1344/DKRZ/kerchunks_batched/NGC-IFS-tco3999-ng5-production-deep-off/{{ dim }}_{{ time_map[time] }}_healpix{{ zoom_map[zoom] }}.parq
