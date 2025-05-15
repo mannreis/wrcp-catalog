@@ -34,4 +34,8 @@ sources:
     driver: yaml_file_cat
     args:
         path: "{{CATALOG_DIR}}/CN/main.yaml"
-
+  Aus:
+    description: Australia Node
+    driver: yaml_file_cat
+    args:
+        path: "{{CATALOG_DIR}}/Aus/main.yaml"

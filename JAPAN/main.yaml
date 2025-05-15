@@ -1,5 +1,5 @@
 sources:
-  nicam:
+  nicam_gl11:
     args:
       chunks: null
       consolidated: true
@@ -60,3 +60,86 @@ sources:
           * 3d6h fields are generated on 25 pressure levels as instantaneous values starting at 6-hourly interval.
 
       references: https://doi.org/10.1029/2023MS003701
+  nicam_gl11_latlon:
+    args:
+      urlpath: >
+        {% with time_map = {'PT1H': '1h', 'PT3H': '3h', 'PT6H' : '6h'} ,  dims_map = {'PT1H': '2d', 'PT3H': '2d', 'PT6H' : '3d'}  -%}
+        /large/sftpgo/data/NICAM/hackathon/latlon/0.25deg/{{ dims_map[time] }}{{ time_map[time] }}/*.nc
+        {%- endwith %}
+    driver: netcdf
+    parameters:
+      time:
+        allowed:
+        - PT3H
+        - PT6H
+        default: PT3H
+        description: time resolution of the dataset
+        type: str
+    metadata:
+      title: NICAM 3.5 km simulation
+      summary: |
+        This is the data from `nicam_gl11`, but on a lat/lon grid.
+  nicam_220m_test:
+    args:
+      chunks: null
+      consolidated: true
+      urlpath: /work/matsugishi/220m/data_healpix_{{ zoom }}.zarr
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+          - 15
+          - 14
+          - 13
+          - 12
+          - 11
+          - 10
+          - 9
+          - 8
+          - 7
+          - 6
+          - 5
+          - 4
+          - 3
+          - 2
+          - 1
+          - 0
+        default: 0
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+        project: global_hackathon
+        experiment_id: atm_only
+        source_id: NICAM
+        simulation_id: nicamgles
+        time_start: 2016-08-05T04:00:00
+        time_end: 2016-08-05T04:00:00
+        title: NICAM 220 m simulation
+        summary: |
+          Atmosphere-only simulation at 220 m resolution.
+          **Simulation**
+            * Horizontal grid: Glevel-15, 10737418240 control volumes (hexagon/pentagon), average interaval (dx) ~ 220 km
+            * Vertical grid: 78 full levels with the model top of about 50 km
+  nicam_ecomip:
+    args:
+      urlpath: /work/share/ecomip/ecomip_hp_{{zoom}}.zarr
+    driver: zarr
+    parameters:
+      zoom:
+        allowed:
+          - 10
+        default: 10
+        description: zoom resolution of the dataset
+        type: int
+    metadata:
+      title: NICAM 3.5 km ECOMIP simulation
+      summary: |
+        * Resolution: 3.5 km
+        * Temporal resolution: 2D, 3D every 30 mins
+        * Turbulent scheme: MYNN2
+        * Microphysics scheme: NSW6
+        * Initial condition: ERA5 (2024/09/01 00UTC)
+        * Output period: From 2024/09/03 00:30 UTC to 2024/09/04 00:00 UTC
+
+        ss_tbb11um : simulated 11 micron brightness temperature like a geostationary satellite's
+      references: https://easy.gems.dkrz.de/DYAMOND/Summer/models/nicam.html
